@@ -1,0 +1,28 @@
+.card {
+  background: var(--dark-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-normal);
+
+  &--default {
+    padding: var(--spacing-lg);
+  }
+
+  &--bordered {
+    border: 2px solid var(--border-color);
+  }
+
+  &--primary {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+  }
+
+  &--hover {
+    &:hover {
+      background: var(--dark-card-hover);
+      border-color: var(--primary-blue);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+  }
+}
