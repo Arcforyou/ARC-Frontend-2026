@@ -4,11 +4,15 @@ import { Outlet } from 'react-router-dom';
 import Footer from '../Footer';
 
 const MainLayout = () => {
-    <>
-        <Header />
-        <Outlet />
-        <Footer/>
-    </>
-}
+    return (
+        <div className="min-h-screen bg-dark-bg text-text-primary">
+            <Header />
+            <main>
+                <Outlet />
+            </main>
+            <Footer />
+        </div>
+    );
+};
 export default MainLayout;
 
