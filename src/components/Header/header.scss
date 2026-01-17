@@ -1,0 +1,138 @@
+.header {
+  background: var(--gradient-primary);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    &--mobile {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(26, 29, 61, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      flex-direction: column;
+      gap: 16px;
+
+      @media (max-width: 768px) {
+        display: flex;
+      }
+
+      &.active {
+        display: flex;
+      }
+    }
+  }
+
+  &__link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--primary-cyan);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @media (max-width: 768px) {
+      gap: 12px;
+    }
+  }
+
+  &__select {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+
+    &:focus {
+      border-color: var(--primary-cyan);
+    }
+
+    option {
+      background: var(--dark-card);
+      color: var(--white);
+    }
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+      padding: 6px 8px;
+    }
+  }
+
+  &__search {
+    background: none;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    padding: 8px;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--primary-cyan);
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    padding: 8px;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
