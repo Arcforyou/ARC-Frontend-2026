@@ -11,6 +11,7 @@ const Header = () => {
       <div className="header__container container">
         {/* Logo */}
         <Link to="/" className="header__logo text-2xl font-bold text-white">
+        </Link>
         {/* Desktop Navigation */}
         <nav className="header__nav hidden md:flex items-center space-x-8">
           <Link to="/" className="header__link text-white hover:text-primary-cyan transition-colors">Home</Link>
