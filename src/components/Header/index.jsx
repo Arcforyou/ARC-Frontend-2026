@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './header.scss';
+import image from '../../utils/helper';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,10 +10,7 @@ const Header = () => {
     <header className="header">
       <div className="header__container">
         {/* Logo */}
-        <Link to="/" className="header__logo">
-          ARC
-        </Link>
-
+        <Link to="/" className="header__logo"><img src={image['logo.png']} alt='logo' className='w-20' style={{maxWidth:'100px'}}/></Link>
         {/* Desktop Navigation */}
         <nav className="header__nav">
           <Link to="/" className="header__link">Home</Link>
@@ -30,13 +28,11 @@ const Header = () => {
             <option value="es">Spanish</option>
             <option value="fr">French</option>
           </select>
-          
           <button className="header__search">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </button>
-
           <button 
             className="header__mobile-toggle"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
