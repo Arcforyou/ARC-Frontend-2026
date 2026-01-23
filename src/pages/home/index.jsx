@@ -1,5 +1,6 @@
 import React from 'react';
 import image from '../../utils/helper';
+import Button from '../../components/Button/Button';
 import './home.scss';
 const Home = () => {
   return (
@@ -16,6 +17,9 @@ const Home = () => {
           <h1 className='title'>Built for Traders, <br />Backed by Professionals!</h1>
           <p>Master your trading skills on our simulated trading platform,
             improve your trading on a demo ARC Account with up to $300,000 and get a reward of up to 90% of your simulated profits</p>
+          <Button variant="primary" size="large" className="hero-btn">
+            ARC CHALLENGE
+          </Button>
         </div>
         <div className='bottom-section'>
         </div>

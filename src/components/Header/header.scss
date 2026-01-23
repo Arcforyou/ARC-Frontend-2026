@@ -74,28 +74,37 @@
     }
   }
 
-  &__select {
-    background: transparent;
-    color: var(--white);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
-    padding: 8px 12px;
-    font-size: 14px;
-    outline: none;
-    cursor: pointer;
-
-    &:focus {
-      border-color: var(--primary-cyan);
-    }
-
-    option {
+  &__dropdown {
+    position: relative;
+    
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
       background: var(--dark-card);
-      color: var(--white);
-    }
-
-    @media (max-width: 768px) {
-      font-size: 12px;
-      padding: 6px 8px;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 8px 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-lg);
+      
+      .dropdown-item {
+        width: 100%;
+        padding: 10px 16px;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        text-align: left;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        
+        &:hover {
+          background: var(--dark-card-hover);
+        }
+      }
     }
   }
 
