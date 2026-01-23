@@ -4,16 +4,17 @@
   align-items: center;
   justify-content: center;
   font-family: 'Poppins', sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: none;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   overflow: hidden;
-  background: transparent;
-  color: var(--white);
+  background: #1a1d3d;
+  color: #ffffff;
+  border-radius: 50px;
   
-  // Base button with animated border
+  // Animated border effect
   &::before {
     content: '';
     position: absolute;
@@ -21,13 +22,15 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: inherit;
+    border-radius: 50px;
     padding: 1px;
-    background: linear-gradient(90deg, var(--primary-cyan), var(--primary-green));
+    background: linear-gradient(90deg, #00d4ff, #4f60fa, #00d4ff);
+    background-size: 200% 100%;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: xor;
     -webkit-mask-composite: xor;
     transition: all 0.3s ease;
+    animation: borderMove 3s linear infinite;
   }
 
   &::after {
@@ -37,34 +40,19 @@
     left: 1px;
     right: 1px;
     bottom: 1px;
-    background: var(--dark-bg);
-    border-radius: inherit;
+    background: #1a1d3d;
+    border-radius: 50px;
     z-index: -1;
   }
 
-  // Hover effect - animated border movement
-  &:hover::before {
-    background: linear-gradient(90deg, var(--primary-green), var(--primary-cyan), var(--primary-green));
-    background-size: 200% 100%;
-    animation: borderMove 2s linear infinite;
-  }
-
+  // Hover effect
   &:hover {
-    color: var(--white);
     transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
   }
 
-  // Primary variant
-  &--primary {
-    border-radius: 50px;
-    
-    &::before {
-      border-radius: 50px;
-    }
-    
-    &::after {
-      border-radius: 50px;
-    }
+  &:hover::before {
+    animation-duration: 1.5s;
   }
 
   // Size variants
@@ -75,15 +63,15 @@
   }
 
   &--medium {
-    padding: 12px 32px;
+    padding: 12px 24px;
     font-size: 16px;
-    min-height: 48px;
+    min-height: 44px;
   }
 
   &--large {
-    padding: 16px 40px;
-    font-size: 18px;
-    min-height: 56px;
+    padding: 16px 32px;
+    font-size: 16px;
+    min-height: 52px;
   }
 
   // Disabled state
@@ -93,12 +81,12 @@
     transform: none;
     
     &::before {
-      background: var(--text-muted);
       animation: none;
     }
     
     &:hover {
       transform: none;
+      box-shadow: none;
     }
   }
 
@@ -126,13 +114,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 16px;
-  background: transparent;
-  color: var(--white);
+  background: #1a1d3d;
+  color: #ffffff;
   border: none;
   border-radius: 25px;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   cursor: pointer;
   min-width: 140px;
   transition: all 0.3s ease;
@@ -146,11 +134,13 @@
     bottom: 0;
     border-radius: 25px;
     padding: 1px;
-    background: linear-gradient(90deg, var(--primary-cyan), var(--primary-green));
+    background: linear-gradient(90deg, #00d4ff, #4f60fa, #00d4ff);
+    background-size: 200% 100%;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: xor;
     -webkit-mask-composite: xor;
     transition: all 0.3s ease;
+    animation: borderMove 3s linear infinite;
   }
 
   &::after {
@@ -160,19 +150,18 @@
     left: 1px;
     right: 1px;
     bottom: 1px;
-    background: var(--dark-bg);
+    background: #1a1d3d;
     border-radius: 25px;
     z-index: -1;
   }
 
-  &:hover::before {
-    background: linear-gradient(90deg, var(--primary-green), var(--primary-cyan), var(--primary-green));
-    background-size: 200% 100%;
-    animation: borderMove 2s linear infinite;
-  }
-
   &:hover {
     transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+  }
+
+  &:hover::before {
+    animation-duration: 1.5s;
   }
 
   .dropdown-text {
