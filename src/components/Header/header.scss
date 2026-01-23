@@ -5,6 +5,9 @@
   z-index: 1000;
 
   &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -50,7 +53,7 @@
   }
 
   &__link {
-    color: var(--white);
+    color: var(--text-muted);
     text-decoration: none;
     font-weight: 500;
     font-size: 16px;

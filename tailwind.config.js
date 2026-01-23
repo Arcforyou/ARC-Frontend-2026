@@ -34,7 +34,7 @@ export default {
         'gradient-hero': 'linear-gradient(180deg, #1a1d3d 0%, #0f1123 100%)',
       },
       fontFamily: {
-        'public-sans': ['Public Sans', 'sans-serif'],
+        'public-sans': ['Poppins', 'sans-serif'],
       },
     },
   },
