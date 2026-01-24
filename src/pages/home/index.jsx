@@ -22,6 +22,7 @@ const Home = () => {
           </Button>
         </div>
         <div className='bottom-section'>
+          <TradingPlans />
         </div>
       </div>
     </div>
