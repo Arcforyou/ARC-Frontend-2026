@@ -148,76 +148,81 @@ const TradingPlans = () => {
   const mobileAccountData = {
     '6k': {
       amount: '$6K',
-      price: '$42',
-      strikePrice: '$49',
+      price: '$50',
+      strikePrice: '$59',
       badge: 'TRADE15',
       features: [
         { icon: '🤖', title: 'AI Coach', subtitle: 'Your trading buddy', value: '💰 Included', isIncluded: true },
-        { icon: '🎯', title: 'Profit Target', value: '9%' },
+        { icon: '🎯', title: 'Profit Target', value: '10%' },
         { icon: '📉', title: 'Max Drawdown', subtitle: 'Trailing', value: '6%' },
         { icon: '⚡', title: 'Daily Drawdown', value: '3%' },
         { icon: '🎁', title: 'Rewards', value: 'Bi-Weekly' },
+        { icon: '🎁', title: 'Rewards', value: '80%' },
         { icon: '💰', title: 'Profit Split', value: '80%' },
         { icon: '⏰', title: 'Time Limit', value: 'Unlimited' }
       ]
     },
     '15k': {
       amount: '$15K',
-      price: '$84',
-      strikePrice: '$99',
+      price: '$110',
+      strikePrice: '$129',
       badge: 'TRADE15',
       features: [
         { icon: '🤖', title: 'AI Coach', subtitle: 'Your trading buddy', value: '💰 Included', isIncluded: true },
-        { icon: '🎯', title: 'Profit Target', value: '9%' },
+        { icon: '🎯', title: 'Profit Target', value: '10%' },
         { icon: '📉', title: 'Max Drawdown', subtitle: 'Trailing', value: '6%' },
         { icon: '⚡', title: 'Daily Drawdown', value: '3%' },
         { icon: '🎁', title: 'Rewards', value: 'Bi-Weekly' },
+        { icon: '🎁', title: 'Rewards', value: '80%' },
         { icon: '💰', title: 'Profit Split', value: '80%' },
         { icon: '⏰', title: 'Time Limit', value: 'Unlimited' }
       ]
     },
     '25k': {
       amount: '$25K',
-      price: '$152',
-      strikePrice: '$179',
+      price: '$180',
+      strikePrice: '$210',
       badge: 'TRADE15',
       features: [
         { icon: '🤖', title: 'AI Coach', subtitle: 'Your trading buddy', value: '💰 Included', isIncluded: true },
-        { icon: '🎯', title: 'Profit Target', value: '9%' },
+        { icon: '🎯', title: 'Profit Target', value: '10%' },
         { icon: '📉', title: 'Max Drawdown', subtitle: 'Trailing', value: '6%' },
         { icon: '⚡', title: 'Daily Drawdown', value: '3%' },
         { icon: '🎁', title: 'Rewards', value: 'Bi-Weekly' },
+        { icon: '🎁', title: 'Rewards', value: '80%' },
         { icon: '💰', title: 'Profit Split', value: '80%' },
         { icon: '⏰', title: 'Time Limit', value: 'Unlimited' }
       ]
     },
     '50k': {
       amount: '$50K',
-      price: '$212',
-      strikePrice: '$249',
+      price: '$280',
+      strikePrice: '$330',
       badge: 'TRADE15',
       features: [
         { icon: '🤖', title: 'AI Coach', subtitle: 'Your trading buddy', value: '💰 Included', isIncluded: true },
-        { icon: '🎯', title: 'Profit Target', value: '9%' },
+        { icon: '🎯', title: 'Profit Target', value: '10%' },
         { icon: '📉', title: 'Max Drawdown', subtitle: 'Trailing', value: '6%' },
         { icon: '⚡', title: 'Daily Drawdown', value: '3%' },
         { icon: '🎁', title: 'Rewards', value: 'Bi-Weekly' },
+        { icon: '🎁', title: 'Rewards', value: '80%' },
         { icon: '💰', title: 'Profit Split', value: '80%' },
         { icon: '⏰', title: 'Time Limit', value: 'Unlimited' }
       ]
     },
     '100k': {
       amount: '$100K',
-      price: '$375',
-      strikePrice: '$469',
+      price: '$450',
+      strikePrice: '$530',
       badge: '100KBOGO',
       highlight: true,
       features: [
         { icon: '🤖', title: 'AI Coach', subtitle: 'Your trading buddy', value: '💰 Included', isIncluded: true },
-        { icon: '🎯', title: 'Profit Target', value: '9%' },
+        { icon: '🎯', title: 'Profit Target', value: '10%' },
         { icon: '📉', title: 'Max Drawdown', subtitle: 'Trailing', value: '6%' },
         { icon: '⚡', title: 'Daily Drawdown', value: '3%' },
         { icon: '🎁', title: 'Rewards', value: 'Bi-Weekly' },
+        { icon: '🎁', title: 'Rewards', value: '80%' },
         { icon: '💰', title: 'Profit Split', value: '80%' },
         { icon: '⏰', title: 'Time Limit', value: 'Unlimited' }
       ]

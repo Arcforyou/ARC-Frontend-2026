@@ -565,16 +565,20 @@
 
   &__mobile-account-selector {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 8px;
     margin-bottom: 24px;
-    max-width: 600px;
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
 
     @media (max-width: 480px) {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
+    }
+
+    @media (max-width: 360px) {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
@@ -582,18 +586,18 @@
     background: #2d3748;
     border: 2px solid #4a5568;
     color: var(--white);
-    padding: 12px 16px;
+    padding: 8px 12px;
     border-radius: 25px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: center;
 
     &.active {
-      background: #ffd700;
+      background: var(--primary-green);
       color: #000;
-      border-color: #ffd700;
+      border-color: var(--primary-green);
     }
 
     &:hover:not(.active) {
