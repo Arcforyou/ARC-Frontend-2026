@@ -22,7 +22,7 @@ const TradingPlans = () => {
       id: 'futures',
       title: 'Futures',
       subtitle: 'Professional Futures trading platform',
-      icon: '📈'
+      icon: '🚀'
     }
   ];
 
@@ -31,7 +31,8 @@ const TradingPlans = () => {
       id: 'one-step',
       title: 'One-Step',
       badge: 'Popular',
-      features: ['Fastest evaluation', 'Only 9% profit target']
+      features: ['Fastest evaluation', 'Only 9% profit target'],
+      isActive: true
     },
     {
       id: 'two-step',
@@ -59,39 +60,30 @@ const TradingPlans = () => {
   const plans = [
     {
       amount: '$6K',
-      originalPrice: null,
       price: '$42',
       strikePrice: '$49',
-      badge: 'TRADE15',
-      highlight: false
+      badge: 'TRADE15'
     },
     {
       amount: '$15K',
-      originalPrice: null,
       price: '$84',
       strikePrice: '$99',
-      badge: 'TRADE15',
-      highlight: false
+      badge: 'TRADE15'
     },
     {
       amount: '$25K',
-      originalPrice: null,
       price: '$152',
       strikePrice: '$179',
-      badge: 'TRADE15',
-      highlight: false
+      badge: 'TRADE15'
     },
     {
       amount: '$50K',
-      originalPrice: null,
       price: '$212',
       strikePrice: '$249',
-      badge: 'TRADE15',
-      highlight: false
+      badge: 'TRADE15'
     },
     {
       amount: '$100K',
-      originalPrice: null,
       price: '$375',
       strikePrice: '$469',
       badge: '100KBOGO',
@@ -101,14 +93,47 @@ const TradingPlans = () => {
   ];
 
   const features = [
-    { icon: '🤖', title: 'AI Coach', subtitle: 'Your trading buddy' },
-    { icon: '🎯', title: 'Profit Target', value: '9%' },
-    { icon: '📉', title: 'Max Drawdown', subtitle: 'Trailing', value: '6%' },
-    { icon: '📊', title: 'Daily Drawdown', value: '3%' },
-    { icon: '🎁', title: 'Rewards', value: 'Bi-Weekly' },
-    { icon: '💰', title: 'Profit Split', value: '80%' },
-    { icon: '⏰', title: 'Time Limit', value: 'Unlimited' },
-    { icon: '💳', title: 'One-Time Fee' }
+    { 
+      icon: '🤖', 
+      title: 'AI Coach', 
+      subtitle: 'Your trading buddy',
+      tooltip: true
+    },
+    { 
+      icon: '🎯', 
+      title: 'Profit Target',
+      tooltip: true
+    },
+    { 
+      icon: '📉', 
+      title: 'Max Drawdown', 
+      subtitle: 'Trailing',
+      tooltip: true
+    },
+    { 
+      icon: '⚡', 
+      title: 'Daily Drawdown',
+      tooltip: true
+    },
+    { 
+      icon: '🎁', 
+      title: 'Rewards',
+      tooltip: true
+    },
+    { 
+      icon: '💰', 
+      title: 'Profit Split',
+      tooltip: true
+    },
+    { 
+      icon: '⏰', 
+      title: 'Time Limit',
+      tooltip: true
+    },
+    { 
+      icon: '💳', 
+      title: 'One-Time Fee'
+    }
   ];
 
   return (
@@ -134,7 +159,10 @@ const TradingPlans = () => {
         {/* Challenge Types */}
         <div className="trading-plans__challenge-types">
           {challengeTypes.map((type) => (
-            <div key={type.id} className="trading-plans__challenge-type">
+            <div 
+              key={type.id} 
+              className={`trading-plans__challenge-type ${type.isActive ? 'active' : ''}`}
+            >
               {type.badge && (
                 <span className={`trading-plans__badge ${type.badge.toLowerCase()}`}>
                   {type.badge}
@@ -153,73 +181,81 @@ const TradingPlans = () => {
           ))}
         </div>
 
-        {/* Plans Grid */}
-        <div className="trading-plans__grid">
+        {/* Main Pricing Table */}
+        <div className="trading-plans__table">
           {/* Features Column */}
-          <div className="trading-plans__features">
+          <div className="trading-plans__features-column">
             {features.map((feature, index) => (
-              <div key={index} className="trading-plans__feature">
-                <div className="trading-plans__feature-icon">{feature.icon}</div>
+              <div key={index} className="trading-plans__feature-row">
                 <div className="trading-plans__feature-content">
-                  <span className="trading-plans__feature-title">{feature.title}</span>
-                  {feature.subtitle && (
-                    <span className="trading-plans__feature-subtitle">{feature.subtitle}</span>
+                  <span className="trading-plans__feature-icon">{feature.icon}</span>
+                  <div className="trading-plans__feature-text">
+                    <span className="trading-plans__feature-title">{feature.title}</span>
+                    {feature.subtitle && (
+                      <span className="trading-plans__feature-subtitle">{feature.subtitle}</span>
+                    )}
+                  </div>
+                  {feature.tooltip && (
+                    <span className="trading-plans__feature-tooltip">ⓘ</span>
                   )}
                 </div>
-                {feature.value && (
-                  <div className="trading-plans__feature-value">{feature.value}</div>
-                )}
               </div>
             ))}
           </div>
 
           {/* Plans Columns */}
-          {plans.map((plan, index) => (
-            <div 
-              key={index} 
-              className={`trading-plans__plan ${plan.highlight ? 'highlight' : ''}`}
-            >
-              {plan.offer && (
-                <div className="trading-plans__offer">{plan.offer}</div>
-              )}
-              
-              <div className="trading-plans__plan-header">
-                <h3 className="trading-plans__plan-amount">{plan.amount}</h3>
-                <p className="trading-plans__plan-label">Virtual Capital</p>
-              </div>
-
-              <div className="trading-plans__plan-included">
-                <span className="included-icon">💰</span>
-                <span>Included</span>
-              </div>
-
-              {/* Feature Values */}
-              <div className="trading-plans__plan-features">
-                <div className="trading-plans__plan-feature">9%</div>
-                <div className="trading-plans__plan-feature">6%</div>
-                <div className="trading-plans__plan-feature">3%</div>
-                <div className="trading-plans__plan-feature">Bi-Weekly</div>
-                <div className="trading-plans__plan-feature">80%</div>
-                <div className="trading-plans__plan-feature">Unlimited</div>
-              </div>
-
-              <div className="trading-plans__plan-pricing">
-                <div className="trading-plans__plan-price">
-                  <span className="current-price">{plan.price}</span>
-                  <span className="strike-price">{plan.strikePrice}</span>
+          <div className="trading-plans__plans-grid">
+            {plans.map((plan, index) => (
+              <div 
+                key={index} 
+                className={`trading-plans__plan-column ${plan.highlight ? 'highlight' : ''}`}
+              >
+                {plan.offer && (
+                  <div className="trading-plans__plan-offer">{plan.offer}</div>
+                )}
+                
+                {/* Plan Header */}
+                <div className="trading-plans__plan-header">
+                  <h3 className="trading-plans__plan-amount">{plan.amount}</h3>
+                  <p className="trading-plans__plan-label">
+                    Virtual Capital 
+                    <span className="tooltip-icon">ⓘ</span>
+                  </p>
                 </div>
-                <div className="trading-plans__plan-badge">{plan.badge}</div>
-              </div>
 
-              <Button variant="primary" size="medium" className="trading-plans__plan-button">
-                Start Now
-              </Button>
-            </div>
-          ))}
+                {/* Feature Values */}
+                <div className="trading-plans__plan-values">
+                  <div className="trading-plans__plan-value">
+                    <span className="included-badge">💰 Included</span>
+                  </div>
+                  <div className="trading-plans__plan-value">9%</div>
+                  <div className="trading-plans__plan-value">6%</div>
+                  <div className="trading-plans__plan-value">3%</div>
+                  <div className="trading-plans__plan-value">Bi-Weekly</div>
+                  <div className="trading-plans__plan-value">80%</div>
+                  <div className="trading-plans__plan-value">Unlimited</div>
+                  <div className="trading-plans__plan-value pricing-cell">
+                    <div className="trading-plans__plan-pricing">
+                      <span className="current-price">{plan.price}</span>
+                      <span className="strike-price">{plan.strikePrice}</span>
+                    </div>
+                    <div className="trading-plans__plan-badge">{plan.badge}</div>
+                  </div>
+                </div>
+
+                {/* CTA Button */}
+                <div className="trading-plans__plan-cta">
+                  <Button variant="primary" size="medium" className="trading-plans__plan-button">
+                    Start Now
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Bottom CTA */}
-        <div className="trading-plans__cta">
+        <div className="trading-plans__bottom-cta">
           <div className="trading-plans__cta-content">
             <h3 className="trading-plans__cta-title">Are you a new customer?</h3>
             <p className="trading-plans__cta-subtitle">
@@ -230,8 +266,9 @@ const TradingPlans = () => {
             <div className="trading-plans__cta-code">
               <span>Code: </span>
               <span className="code">NEW20</span>
+              <span className="tooltip-icon">ⓘ</span>
             </div>
-            <Button variant="primary" size="medium">
+            <Button variant="primary" size="medium" className="new-customer-btn">
               Start Now
               <span className="button-subtitle">as a new customer</span>
             </Button>

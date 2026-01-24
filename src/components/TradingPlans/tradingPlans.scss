@@ -1,16 +1,20 @@
 .trading-plans {
-  padding: 80px 0;
+  padding: 60px 0;
   background: var(--dark-bg);
   color: var(--white);
 
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  // Tabs Section
   &__tabs {
     display: flex;
-    gap: 2px;
+    gap: 0;
     margin-bottom: 40px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    padding: 4px;
-    max-width: 800px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -18,19 +22,33 @@
   &__tab {
     flex: 1;
     background: transparent;
-    border: none;
-    border-radius: 12px;
-    padding: 20px;
+    border: 2px solid #4a5568;
     color: var(--text-secondary);
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 12px;
+    padding: 20px 24px;
+    position: relative;
+
+    &:first-child {
+      border-radius: 12px 0 0 12px;
+    }
+
+    &:last-child {
+      border-radius: 0 12px 12px 0;
+    }
+
+    &:not(:first-child) {
+      border-left: none;
+    }
 
     &.active {
-      background: var(--gradient-primary);
+      background: transparent;
+      border-color: #ffd700;
       color: var(--white);
+      z-index: 2;
     }
 
     &:hover:not(.active) {
@@ -40,7 +58,7 @@
   }
 
   &__tab-icon {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
   }
 
@@ -49,24 +67,28 @@
   }
 
   &__tab-title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     margin: 0;
     line-height: 1.2;
   }
 
   &__tab-subtitle {
-    font-size: 14px;
+    font-size: 12px;
     opacity: 0.8;
     margin: 0;
     line-height: 1.3;
   }
 
+  // Challenge Types Section
   &__challenge-types {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
+    gap: 12px;
     margin-bottom: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 
     @media (max-width: 1200px) {
       grid-template-columns: repeat(3, 1fr);
@@ -82,16 +104,21 @@
   }
 
   &__challenge-type {
-    background: var(--dark-card);
-    border: 1px solid var(--border-color);
+    background: #2d3748;
+    border: 2px solid transparent;
     border-radius: 12px;
-    padding: 20px;
+    padding: 16px;
     position: relative;
     transition: all 0.3s ease;
+    cursor: pointer;
 
-    &:hover {
-      border-color: var(--primary-cyan);
-      transform: translateY(-2px);
+    &.active {
+      border-color: #ffd700;
+      background: #2d3748;
+    }
+
+    &:hover:not(.active) {
+      border-color: #4a5568;
     }
   }
 
@@ -99,27 +126,27 @@
     position: absolute;
     top: -8px;
     left: 16px;
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 10px;
     font-weight: 600;
     text-transform: uppercase;
 
     &.popular {
-      background: var(--primary-green);
-      color: var(--dark-bg);
+      background: #ffd700;
+      color: #000;
     }
 
     &.labs {
-      background: #ff6b6b;
+      background: #e53e3e;
       color: var(--white);
     }
   }
 
   &__challenge-title {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
-    margin: 0 0 12px 0;
+    margin: 0 0 8px 0;
     color: var(--white);
   }
 
@@ -132,67 +159,58 @@
   &__challenge-feature {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 14px;
+    gap: 6px;
+    font-size: 12px;
     color: var(--text-secondary);
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 
     .checkmark {
-      color: var(--primary-green);
+      color: #48bb78;
       font-weight: bold;
+      font-size: 10px;
     }
   }
 
-  &__grid {
-    display: grid;
-    grid-template-columns: 300px repeat(5, 1fr);
-    gap: 2px;
-    background: rgba(255, 255, 255, 0.05);
+  // Main Table Layout
+  &__table {
+    background: #1a202c;
     border-radius: 16px;
-    padding: 2px;
+    overflow: hidden;
     margin-bottom: 40px;
-
-    @media (max-width: 1400px) {
-      grid-template-columns: 250px repeat(5, 1fr);
-    }
-
-    @media (max-width: 1200px) {
-      grid-template-columns: 1fr;
-      gap: 16px;
-      background: transparent;
-      padding: 0;
-    }
+    border: 1px solid #2d3748;
   }
 
-  &__features {
-    background: var(--dark-card);
-    border-radius: 14px;
-    padding: 24px 20px;
-
-    @media (max-width: 1200px) {
-      display: none;
-    }
+  &__features-column {
+    background: #2d3748;
+    padding: 0;
   }
 
-  &__feature {
+  &__feature-row {
+    padding: 16px 20px;
+    border-bottom: 1px solid #4a5568;
+    min-height: 60px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--border-color-light);
 
     &:last-child {
       border-bottom: none;
     }
   }
 
+  &__feature-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
   &__feature-icon {
-    font-size: 20px;
-    width: 24px;
+    font-size: 18px;
+    width: 20px;
     text-align: center;
   }
 
-  &__feature-content {
+  &__feature-text {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -211,164 +229,198 @@
     line-height: 1.2;
   }
 
-  &__feature-value {
+  &__feature-tooltip {
+    color: #718096;
     font-size: 14px;
-    font-weight: 600;
-    color: var(--white);
+    cursor: help;
   }
 
-  &__plan {
-    background: var(--dark-card);
-    border-radius: 14px;
-    padding: 24px 20px;
-    position: relative;
-    transition: all 0.3s ease;
+  &__plans-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 20px;
+    }
+  }
 
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 32px rgba(0, 212, 255, 0.2);
+  &__plan-column {
+    background: #2d3748;
+    position: relative;
+    border-right: 1px solid #4a5568;
+
+    &:last-child {
+      border-right: none;
     }
 
     &.highlight {
-      border: 2px solid var(--primary-cyan);
-      background: linear-gradient(135deg, var(--dark-card) 0%, rgba(0, 212, 255, 0.05) 100%);
+      background: #2d3748;
+      border: 2px solid #ed8936;
+      border-radius: 0 16px 16px 0;
+      margin: -1px -1px -1px 0;
     }
 
     @media (max-width: 1200px) {
-      margin-bottom: 20px;
+      border: 1px solid #4a5568;
+      border-radius: 12px;
+      
+      &.highlight {
+        border-color: #ed8936;
+        margin: 0;
+      }
     }
   }
 
-  &__offer {
+  &__plan-offer {
     position: absolute;
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--primary-cyan);
-    color: var(--dark-bg);
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 12px;
+    background: #ed8936;
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    z-index: 10;
   }
 
   &__plan-header {
     text-align: center;
-    margin-bottom: 20px;
+    padding: 20px 16px 16px;
+    border-bottom: 1px solid #4a5568;
   }
 
   &__plan-amount {
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 700;
     color: var(--white);
-    margin: 0 0 8px 0;
+    margin: 0 0 4px 0;
   }
 
   &__plan-label {
-    font-size: 14px;
+    font-size: 12px;
     color: var(--text-secondary);
     margin: 0;
-  }
-
-  &__plan-included {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    background: rgba(255, 193, 7, 0.1);
-    color: #ffc107;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 24px;
+    gap: 4px;
 
-    .included-icon {
-      font-size: 16px;
+    .tooltip-icon {
+      font-size: 12px;
+      color: #718096;
     }
   }
 
-  &__plan-features {
+  &__plan-values {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: 24px;
-
-    @media (max-width: 1200px) {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
   }
 
-  &__plan-feature {
+  &__plan-value {
+    padding: 16px;
+    border-bottom: 1px solid #4a5568;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--white);
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border-color-light);
-
-    @media (max-width: 1200px) {
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 12px;
-    }
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:last-child {
       border-bottom: none;
     }
+
+    &.pricing-cell {
+      flex-direction: column;
+      gap: 8px;
+      padding: 20px 16px;
+    }
+  }
+
+  .included-badge {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffd700;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
   }
 
   &__plan-pricing {
-    text-align: center;
-    margin-bottom: 24px;
-  }
-
-  &__plan-price {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    margin-bottom: 12px;
 
     .current-price {
-      font-size: 28px;
+      font-size: 20px;
       font-weight: 700;
-      color: #ffc107;
+      color: #ffd700;
     }
 
     .strike-price {
-      font-size: 18px;
+      font-size: 14px;
       color: var(--text-muted);
       text-decoration: line-through;
     }
   }
 
   &__plan-badge {
-    background: rgba(255, 193, 7, 0.1);
-    color: #ffc107;
-    padding: 6px 12px;
-    border-radius: 12px;
-    font-size: 12px;
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffd700;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 10px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    display: inline-block;
+    border: 1px dashed #ffd700;
+  }
+
+  &__plan-cta {
+    padding: 20px 16px;
   }
 
   &__plan-button {
     width: 100%;
-    margin-top: 20px;
+    background: #ffd700;
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #e6c200;
+      transform: translateY(-1px);
+    }
+
+    &::before,
+    &::after {
+      display: none;
+    }
   }
 
-  &__cta {
-    background: var(--dark-card);
-    border: 1px solid var(--border-color);
+  // Bottom CTA Section
+  &__bottom-cta {
+    background: #2d3748;
+    border: 1px solid #4a5568;
     border-radius: 16px;
-    padding: 32px;
+    padding: 24px 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -377,7 +429,7 @@
     @media (max-width: 768px) {
       flex-direction: column;
       text-align: center;
-      gap: 24px;
+      gap: 20px;
     }
   }
 
@@ -386,14 +438,14 @@
   }
 
   &__cta-title {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     color: var(--white);
-    margin: 0 0 8px 0;
+    margin: 0 0 4px 0;
   }
 
   &__cta-subtitle {
-    font-size: 16px;
+    font-size: 14px;
     color: var(--text-secondary);
     margin: 0;
   }
@@ -401,7 +453,7 @@
   &__cta-actions {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 20px;
 
     @media (max-width: 768px) {
       flex-direction: column;
@@ -410,23 +462,136 @@
   }
 
   &__cta-code {
-    font-size: 16px;
+    font-size: 14px;
     color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
     .code {
-      background: var(--primary-cyan);
-      color: var(--dark-bg);
+      background: rgba(255, 193, 7, 0.2);
+      color: #ffd700;
       padding: 6px 12px;
       border-radius: 8px;
       font-weight: 700;
-      margin-left: 8px;
+      border: 1px dashed #ffd700;
+    }
+
+    .tooltip-icon {
+      color: #718096;
+      font-size: 14px;
+      cursor: help;
     }
   }
 
-  .button-subtitle {
-    display: block;
-    font-size: 12px;
-    opacity: 0.8;
-    margin-top: 2px;
+  .new-customer-btn {
+    background: #ffd700;
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover {
+      background: #e6c200;
+      transform: translateY(-1px);
+    }
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    .button-subtitle {
+      font-size: 11px;
+      opacity: 0.8;
+      margin-top: 2px;
+      font-weight: 400;
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 1200px) {
+    &__table {
+      display: block;
+    }
+
+    &__features-column {
+      display: none;
+    }
+
+    &__plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    &__plan-column {
+      background: #2d3748;
+      border: 1px solid #4a5568;
+      border-radius: 12px;
+      padding: 0;
+
+      &.highlight {
+        border-color: #ed8936;
+      }
+    }
+
+    &__plan-values {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: #4a5568;
+      margin: 16px;
+      border-radius: 8px;
+      overflow: hidden;
+
+      .pricing-cell {
+        grid-column: 1 / -1;
+      }
+    }
+
+    &__plan-value {
+      background: #2d3748;
+      min-height: 50px;
+      border: none;
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__tabs {
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    &__tab {
+      border-radius: 8px !important;
+      border: 2px solid #4a5568 !important;
+      margin-bottom: 2px;
+
+      &:not(:first-child) {
+        border-left: 2px solid #4a5568 !important;
+      }
+    }
+
+    &__challenge-types {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    &__plans-grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__plan-values {
+      grid-template-columns: 1fr;
+    }
   }
 }
