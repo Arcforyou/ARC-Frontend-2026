@@ -5,7 +5,7 @@ import TradingPlans from '../../components/TradingPlans/TradingPlans';
 import './home.scss';
 const Home = () => {
   return (
-    <div className="home-main-wrapped " >
+    <div className="home-main-wrapped hero-wrapped" >
       {/* <img src={image['bg.png']} alt='' /> */}
       <div className='first-gradient'></div>
       <div className='clip-image'>
