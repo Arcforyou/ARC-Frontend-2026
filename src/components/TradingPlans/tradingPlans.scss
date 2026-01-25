@@ -2,18 +2,14 @@
   padding: 60px 0;
   background: var(--dark-bg);
   color: var(--white);
-
-  .container {
-    max-width: 1400px;
+  &__container {
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 20px;
   }
-
   // Main Tabs
   &__main-tabs {
     display: flex;
-    gap: 20px;
-    margin-bottom: 40px;
     justify-content: center;
 
     @media (max-width: 768px) {
@@ -22,9 +18,13 @@
     }
   }
 
+  &__main-inner {
+    padding: 25px;
+    background-color: #080b31;
+  }
+
   &__main-tab {
     background: transparent;
-    border: 2px solid #3c479a;
     border-radius: 16px;
     padding: 20px 40px;
     color: var(--white);
@@ -32,12 +32,14 @@
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 16px;
     min-width: 300px;
+    width: 100%;
 
     &.active {
-      background: linear-gradient(135deg, #3c479a 0%, #1e40af 100%);
-      border-color: #3c479a;
+      background: linear-gradient(#000951, #080b31) padding-box, linear-gradient(180deg, #3c479a 0%, #000842 100%) border-box;
+      border: 1px solid transparent;
+      border-radius: 24px 24px 0 0;
+      border-bottom: 0 !important;
     }
 
     &:hover:not(.active) {
@@ -60,7 +62,7 @@
   }
 
   &__main-tab-title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     margin: 0 0 4px 0;
     line-height: 1.2;
@@ -76,7 +78,7 @@
   // Challenge Types
   &__challenge-types {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     margin-bottom: 40px;
 
@@ -172,17 +174,18 @@
 
   // Vertical Table
   &__table {
-    background: linear-gradient(135deg, rgba(26, 29, 61, 0.8) 0%, rgba(15, 17, 35, 0.9) 100%);
+    // background: linear-gradient(135deg, rgba(26, 29, 61, 0.8) 0%, rgba(15, 17, 35, 0.9) 100%);
     border-radius: 20px;
     overflow: hidden;
-    border: 1px solid #3c479a;
+    // border: 1px solid #3c479a;
   }
 
   &__account-headers {
     display: grid;
-    grid-template-columns: 300px repeat(5, 1fr);
-    background: linear-gradient(135deg, #1a1d3d 0%, #0f1123 100%);
-    border-bottom: 1px solid #3c479a;
+    grid-template-columns: 250px repeat(5, 1fr);
+    gap: 7px;
+    // background: linear-gradient(135deg, #1a1d3d 0%, #0f1123 100%);
+    // border-bottom: 1px solid #3c479a;
 
     @media (max-width: 1200px) {
       display: none;
@@ -196,18 +199,16 @@
   &__account-header {
     text-align: center;
     padding: 24px 16px;
-    border-right: 1px solid #3c479a;
+    // border-right: 1px solid #3c479a;
     position: relative;
+    background: linear-gradient(#000e7e, #090d3c) padding-box, linear-gradient(180deg, #3c479a 0%, #000842 100%) border-box;
+    border-radius: 20px 20px 0 0;
+
 
     &:last-child {
       border-right: none;
     }
 
-    &.highlight {
-      background: linear-gradient(135deg, rgba(255, 140, 0, 0.1) 0%, rgba(255, 69, 0, 0.1) 100%);
-      border-left: 2px solid #ff8c00;
-      border-right: 2px solid #ff8c00;
-    }
   }
 
   &__bogo-badge {
@@ -227,8 +228,8 @@
   }
 
   &__account-amount {
-    font-size: 28px;
-    font-weight: 700;
+    font-size: 30px;
+    font-weight: 500;
     color: var(--white);
     margin: 0 0 8px 0;
   }
@@ -241,12 +242,9 @@
 
   &__table-row {
     display: grid;
-    grid-template-columns: 300px repeat(5, 1fr);
-    border-bottom: 1px solid rgba(60, 71, 154, 0.3);
-
-    &:last-child {
-      border-bottom: none;
-    }
+    grid-template-columns: 250px repeat(5, 1fr);
+    // border-bottom: 1px solid rgba(60, 71, 154, 0.3);
+    gap: 7px;
 
     @media (max-width: 1200px) {
       display: block;
@@ -258,13 +256,12 @@
   }
 
   &__feature-cell {
-    background: linear-gradient(135deg, rgba(60, 71, 154, 0.3) 0%, rgba(26, 29, 61, 0.5) 100%);
-    padding: 20px 24px;
-    border-right: 1px solid rgba(60, 71, 154, 0.5);
+    // background: linear-gradient(135deg, rgba(60, 71, 154, 0.3) 0%, rgba(26, 29, 61, 0.5) 100%);
+    padding: 12px 20px;
+    // border-right: 1px solid rgba(60, 71, 154, 0.5);
     display: flex;
     align-items: center;
-    gap: 16px;
-    min-height: 70px;
+    gap: 12px;
 
     @media (max-width: 1200px) {
       background: linear-gradient(135deg, #1a1d3d 0%, #0f1123 100%);
@@ -277,7 +274,7 @@
 
   &__feature-icon {
     font-size: 20px;
-    width: 24px;
+    width: 28px;
     text-align: center;
     color: #B8FF3C;
   }
@@ -294,7 +291,7 @@
 
   &__feature-title {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 400;
     color: var(--white);
     line-height: 1.2;
     margin-bottom: 2px;
@@ -307,18 +304,12 @@
   }
 
   &__value-cell {
-    background: linear-gradient(135deg, rgba(15, 17, 35, 0.8) 0%, rgba(26, 29, 61, 0.6) 100%);
-    padding: 20px 16px;
-    border-right: 1px solid rgba(60, 71, 154, 0.3);
+    padding: 12px 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 70px;
-
-    &:last-child {
-      border-right: none;
-    }
+    background-color: #080d42;
 
     @media (max-width: 1200px) {
       display: grid;
@@ -328,7 +319,7 @@
       padding: 0;
       border-right: none;
 
-      & > * {
+      &>* {
         background: linear-gradient(135deg, rgba(15, 17, 35, 0.8) 0%, rgba(26, 29, 61, 0.6) 100%);
         padding: 16px 8px;
         display: flex;
@@ -355,7 +346,7 @@
 
   &__value-text {
     color: var(--white);
-    font-weight: 600;
+    font-weight: 400;
     font-size: 16px;
   }
 
@@ -368,9 +359,9 @@
   }
 
   &__current-price {
-    font-size: 24px;
-    font-weight: 700;
-    color: #B8FF3C;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--white);
   }
 
   &__strike-price {
@@ -408,14 +399,6 @@
       transform: translateY(-2px);
     }
 
-    &.highlight {
-      background: linear-gradient(135deg, #ff8c00 0%, #ff6b35 100%);
-      color: var(--white);
-
-      &:hover {
-        background: linear-gradient(135deg, #ff6b35 0%, #ff4500 100%);
-      }
-    }
 
     &::before,
     &::after {

@@ -1,43 +1,33 @@
 import React, { useState } from 'react';
 import Button from '../Button/Button';
 import './tradingPlans.scss';
+import { Clock, DailyLoss, MaxLoss, ProfitSplit } from '../icons';
 
 const TradingPlans = () => {
   const [activeMainTab, setActiveMainTab] = useState('forex');
-  const [activeChallengeType, setActiveChallengeType] = useState('one-step');
+  const [activeChallengeType, setActiveChallengeType] = useState('two-step');
 
   // Main tabs data
   const mainTabs = [
     {
       id: 'forex',
-      title: 'Forex',
-      subtitle: 'Raw spreads and low commissions',
-      icon: '€'
+      title: 'Standard Account',
+      subtitle: 'Trade 50+ Forex pairs',
+      icon: ''
     },
     {
       id: 'crypto',
-      title: 'Crypto',
-      subtitle: '50+ Crypto coins to trade',
-      icon: '₿'
+      title: 'Customized Account',
+      subtitle: 'Custom accounts plans',
+      icon: ''
     }
   ];
 
   // Challenge types for Forex
   const forexChallengeTypes = {
-    'one-step': {
-      title: 'One-Step',
-      features: ['Fastest evaluation', 'Only 9% profit target'],
-      badge: 'Popular',
-      badgeColor: 'yellow'
-    },
     'two-step': {
       title: 'Two-Step',
       features: ['Traditional evaluation', '4% DD, 10% MD'],
-      badge: null
-    },
-    'three-step': {
-      title: 'Three-Step',
-      features: ['Cheapest evaluation', 'Lowest profit targets'],
       badge: null
     },
     'instant-master': {
@@ -45,242 +35,196 @@ const TradingPlans = () => {
       features: ['Fastest rewards', 'No Challenge needed'],
       badge: null
     },
-    'instant-master-pro': {
-      title: 'Instant Master PRO',
-      features: ['Just one rule', 'No consistency & DD'],
-      badge: 'Labs',
-      badgeColor: 'red'
-    }
   };
 
-  // Data for One-Step Challenge (from first screenshot)
-  const oneStepData = {
-    '6k': {
-      amount: '$6K',
-      aiCoach: 'Included',
-      profitTarget: '9%',
-      maxDrawdown: '6%',
-      dailyDrawdown: '3%',
-      rewards: 'Bi-Weekly',
-      profitSplit: '80%',
-      timeLimit: 'Unlimited',
-      price: '$42',
-      strikePrice: '$49',
-      code: 'TRADE15'
-    },
-    '15k': {
-      amount: '$15K',
-      aiCoach: 'Included',
-      profitTarget: '9%',
-      maxDrawdown: '6%',
-      dailyDrawdown: '3%',
-      rewards: 'Bi-Weekly',
-      profitSplit: '80%',
-      timeLimit: 'Unlimited',
-      price: '$84',
-      strikePrice: '$99',
-      code: 'TRADE15'
-    },
-    '25k': {
-      amount: '$25K',
-      aiCoach: 'Included',
-      profitTarget: '9%',
-      maxDrawdown: '6%',
-      dailyDrawdown: '3%',
-      rewards: 'Bi-Weekly',
-      profitSplit: '80%',
-      timeLimit: 'Unlimited',
-      price: '$152',
-      strikePrice: '$179',
-      code: 'TRADE15'
-    },
-    '50k': {
-      amount: '$50K',
-      aiCoach: 'Included',
-      profitTarget: '9%',
-      maxDrawdown: '6%',
-      dailyDrawdown: '3%',
-      rewards: 'Bi-Weekly',
-      profitSplit: '80%',
-      timeLimit: 'Unlimited',
-      price: '$212',
-      strikePrice: '$249',
-      code: 'TRADE15'
-    },
-    '100k': {
-      amount: '$100K',
-      aiCoach: 'Included',
-      profitTarget: '9%',
-      maxDrawdown: '6%',
-      dailyDrawdown: '3%',
-      rewards: 'Bi-Weekly',
-      profitSplit: '80%',
-      timeLimit: 'Unlimited',
-      price: '$375',
-      strikePrice: '$469',
-      code: '100KBOGO',
-      highlight: true
-    }
-  };
 
   // Data for Two-Step Challenge (from second screenshot)
+
   const twoStepData = {
-    '6k': {
-      amount: '$6K',
-      aiCoach: 'Included',
-      profitTargetPhase1: '8%',
-      profitTargetPhase2: '5%',
-      maxDrawdown: '8%',
-      dailyDrawdown: '4%',
-      rewards: 'Bi-Weekly',
-      profitSplit: '80%',
-      timeLimit: 'Unlimited',
-      price: '$57',
-      strikePrice: '$67',
-      code: 'TRADE15'
-    },
     '15k': {
       amount: '$15K',
-      aiCoach: 'Included',
-      profitTargetPhase1: '8%',
-      profitTargetPhase2: '5%',
-      maxDrawdown: '8%',
-      dailyDrawdown: '4%',
-      rewards: 'Bi-Weekly',
-      profitSplit: '80%',
-      timeLimit: 'Unlimited',
-      price: '$99',
-      strikePrice: '$117',
-      code: 'TRADE15'
+      price: '$79',
+      novice: {
+        profitTarget: '$1,200 (8%)',
+        maxLoss: '$750 (5%)',
+        maxOverallLoss: '$1,500 (10%)',
+        minmumDay: '5 Days',
+      },
+
+      expert: {
+        profitTarget: '$750 (5%)',
+        maxLoss: '$750 (5%)',
+        maxOverallLoss: '$1,500 (10%)',
+        minmumDay: '5 Days',
+      },
+
+      funded: {
+        profitTarget: 'unlimited',
+        maxLoss: '$750 (5%)',
+        maxOverallLoss: '$1,500 (10%)',
+        minmumDay: '-',
+      }
     },
+
     '25k': {
       amount: '$25K',
-      aiCoach: 'Included',
-      profitTargetPhase1: '8%',
-      profitTargetPhase2: '5%',
-      maxDrawdown: '8%',
-      dailyDrawdown: '4%',
-      rewards: 'Bi-Weekly',
-      profitSplit: '80%',
-      timeLimit: 'Unlimited',
-      price: '$174',
-      strikePrice: '$205',
-      code: 'TRADE15'
+      price: '$179',
+      novice: {
+        profitTarget: '$2,000 (8%)',
+        maxLoss: '$1,250 (5%)',
+        maxOverallLoss: '$2,500 (10%)',
+        minmumDay: '5 Days',
+      },
+
+      expert: {
+        profitTarget: '$1,250 (5%)',
+        maxLoss: '$1,250 (5%)',
+        maxOverallLoss: '$2,500 (10%)',
+        minmumDay: '5 Days',
+      },
+
+      funded: {
+        profitTarget: 'unlimited',
+        maxLoss: '$1,250 (5%)',
+        maxOverallLoss: '$2,500 (10%)',
+        minmumDay: '-',
+      }
+    },
+
+    '50k': {
+      amount: '$50K',
+      price: '$299',
+      novice: {
+        profitTarget: '$4,000 (8%)',
+        maxLoss: '$2,500 (5%)',
+        maxOverallLoss: '$5,000 (10%)',
+        minmumDay: '5 Days',
+      },
+
+      expert: {
+        profitTarget: '$2,500 (5%)',
+        maxLoss: '$2,500 (5%)',
+        maxOverallLoss: '$5,000 (10%)',
+        minmumDay: '5 Days',
+      },
+
+      funded: {
+        profitTarget: 'unlimited',
+        maxLoss: '$2,500 (5%)',
+        maxOverallLoss: '$5,000 (10%)',
+        minmumDay: '-',
+      }
+    },
+
+    '100k': {
+      amount: '$100K',
+      price: '$549',
+      novice: {
+        profitTarget: '$8,000 (8%)',
+        maxLoss: '$5,000 (5%)',
+        maxOverallLoss: '$10,000 (10%)',
+        minmumDay: '5 Days',
+      },
+
+      expert: {
+        profitTarget: '$5,000 (5%)',
+        maxLoss: '$5,000 (5%)',
+        maxOverallLoss: '$10,000 (10%)',
+        minmumDay: '5 Days',
+      },
+
+      funded: {
+        profitTarget: 'unlimited',
+        maxLoss: '$5,000 (5%)',
+        maxOverallLoss: '$10,000 (10%)',
+        minmumDay: '-',
+      }
+    },
+    '200k': {
+      amount: '$100K',
+      price: '$999',
+      novice: {
+        profitTarget: '$10,000 (8%)',
+        maxLoss: '$5,000 (5%)',
+        maxOverallLoss: '$10,000 (10%)',
+        minmumDay: '5 Days',
+      },
+
+      expert: {
+        profitTarget: '$10,000 (5%)',
+        maxLoss: '$5,000 (5%)',
+        maxOverallLoss: '$10,000 (10%)',
+        minmumDay: '5 Days',
+      },
+
+      funded: {
+        profitTarget: 'unlimited',
+        maxLoss: '$5,000 (5%)',
+        maxOverallLoss: '$10,000 (10%)',
+        minmumDay: '-',
+      }
+    }
+  };
+
+  // Data for Instant Master
+  const instantMasterData = {
+    '5k': {
+      amount: '$5K',
+      accountBalance: '$2,500',
+      profitTarget: '10%',
+      profitShare: '50%',
+      maxDailyLoss: '3%',
+      maxOverallLoss: '6%',
+      minimumTradingDays: '-',
+      price: '$599'
+    },
+    '10k': {
+      amount: '$10K',
+      accountBalance: '$5,000',
+      profitTarget: '10%',
+      profitShare: '50%',
+      maxDailyLoss: '3%',
+      maxOverallLoss: '6%',
+      minimumTradingDays: '-',
+      price: '$599'
     },
     '50k': {
       amount: '$50K',
-      aiCoach: 'Included',
-      profitTargetPhase1: '8%',
-      profitTargetPhase2: '5%',
-      maxDrawdown: '8%',
-      dailyDrawdown: '4%',
-      rewards: 'Bi-Weekly',
-      profitSplit: '80%',
-      timeLimit: 'Unlimited',
-      price: '$271',
-      strikePrice: '$319',
-      code: 'TRADE15'
+      accountBalance: '$25,000',
+      profitTarget: '10%',
+      profitShare: '75%',
+      maxDailyLoss: '3%',
+      maxOverallLoss: '6%',
+      minimumTradingDays: '-',
+      price: '$2799'
     },
     '100k': {
       amount: '$100K',
-      aiCoach: 'Included',
-      profitTargetPhase1: '8%',
-      profitTargetPhase2: '5%',
-      maxDrawdown: '8%',
-      dailyDrawdown: '4%',
-      rewards: 'Bi-Weekly',
-      profitSplit: '80%',
-      timeLimit: 'Unlimited',
-      price: '$455',
-      strikePrice: '$569',
-      code: '100KBOGO',
+      accountBalance: '$25,000',
+      profitTarget: '10%',
+      profitShare: '80%',
+      maxDailyLoss: '3%',
+      maxOverallLoss: '6%',
+      minimumTradingDays: '-',
+      price: '$9689',
       highlight: true
     }
   };
 
-  // Dummy data for other challenge types
-  const dummyData = {
-    '6k': {
-      amount: '$6K',
-      aiCoach: 'Included',
-      profitTarget: '7%',
-      maxDrawdown: '5%',
-      dailyDrawdown: '2%',
-      rewards: 'Weekly',
-      profitSplit: '85%',
-      timeLimit: 'Unlimited',
-      price: '$35',
-      strikePrice: '$42',
-      code: 'TRADE15'
-    },
-    '15k': {
-      amount: '$15K',
-      aiCoach: 'Included',
-      profitTarget: '7%',
-      maxDrawdown: '5%',
-      dailyDrawdown: '2%',
-      rewards: 'Weekly',
-      profitSplit: '85%',
-      timeLimit: 'Unlimited',
-      price: '$75',
-      strikePrice: '$89',
-      code: 'TRADE15'
-    },
-    '25k': {
-      amount: '$25K',
-      aiCoach: 'Included',
-      profitTarget: '7%',
-      maxDrawdown: '5%',
-      dailyDrawdown: '2%',
-      rewards: 'Weekly',
-      profitSplit: '85%',
-      timeLimit: 'Unlimited',
-      price: '$135',
-      strikePrice: '$159',
-      code: 'TRADE15'
-    },
-    '50k': {
-      amount: '$50K',
-      aiCoach: 'Included',
-      profitTarget: '7%',
-      maxDrawdown: '5%',
-      dailyDrawdown: '2%',
-      rewards: 'Weekly',
-      profitSplit: '85%',
-      timeLimit: 'Unlimited',
-      price: '$195',
-      strikePrice: '$229',
-      code: 'TRADE15'
-    },
-    '100k': {
-      amount: '$100K',
-      aiCoach: 'Included',
-      profitTarget: '7%',
-      maxDrawdown: '5%',
-      dailyDrawdown: '2%',
-      rewards: 'Weekly',
-      profitSplit: '85%',
-      timeLimit: 'Unlimited',
-      price: '$325',
-      strikePrice: '$399',
-      code: '100KBOGO',
-      highlight: true
-    }
-  };
 
   // Get current data based on active challenge type
   const getCurrentData = () => {
     if (activeMainTab === 'crypto') {
       return {}; // Empty for crypto as requested
     }
-    
+
     switch (activeChallengeType) {
-      case 'one-step':
-        return oneStepData;
       case 'two-step':
         return twoStepData;
+      case 'instant-master':
+        return instantMasterData;
       default:
-        return dummyData;
+        return twoStepData;
     }
   };
 
@@ -307,6 +251,7 @@ const TradingPlans = () => {
           ))}
         </div>
 
+<div className='trading-plans-new__main-inner'>
         {/* Challenge Types */}
         {activeMainTab === 'forex' && (
           <div className="trading-plans-new__challenge-types">
@@ -349,31 +294,12 @@ const TradingPlans = () => {
             <div className="trading-plans-new__account-headers">
               <div className="trading-plans-new__feature-column"></div>
               {accountSizes.map((size) => (
-                <div 
-                  key={size} 
+                <div
+                  key={size}
                   className={`trading-plans-new__account-header ${currentData[size].highlight ? 'highlight' : ''}`}
                 >
-                  {currentData[size].highlight && (
-                    <div className="trading-plans-new__bogo-badge">100K BOGO OFFER</div>
-                  )}
                   <h3 className="trading-plans-new__account-amount">{currentData[size].amount}</h3>
-                  <p className="trading-plans-new__account-label">Virtual Capital</p>
-                </div>
-              ))}
-            </div>
-
-            {/* AI Coach Row */}
-            <div className="trading-plans-new__table-row">
-              <div className="trading-plans-new__feature-cell">
-                <span className="trading-plans-new__feature-icon">🤖</span>
-                <div className="trading-plans-new__feature-text">
-                  <span className="trading-plans-new__feature-title">AI Coach</span>
-                  <span className="trading-plans-new__feature-subtitle">Your trading buddy</span>
-                </div>
-              </div>
-              {accountSizes.map((size) => (
-                <div key={size} className="trading-plans-new__value-cell">
-                  <div className="trading-plans-new__included-badge">⚡ Included</div>
+                  <p className="trading-plans-new__account-label">Funded Stage</p>
                 </div>
               ))}
             </div>
@@ -383,29 +309,72 @@ const TradingPlans = () => {
               <>
                 <div className="trading-plans-new__table-row">
                   <div className="trading-plans-new__feature-cell">
-                    <span className="trading-plans-new__feature-icon">🎯</span>
+                    <span className="trading-plans-new__feature-icon"><ProfitSplit/></span>
                     <div className="trading-plans-new__feature-text">
                       <span className="trading-plans-new__feature-title">Profit Target</span>
-                      <span className="trading-plans-new__feature-subtitle">Phase 1</span>
+                      <span className="trading-plans-new__feature-subtitle">Novice</span>
                     </div>
                   </div>
                   {accountSizes.map((size) => (
                     <div key={size} className="trading-plans-new__value-cell">
-                      <span className="trading-plans-new__value-text">{currentData[size].profitTargetPhase1}</span>
+                      <span className="trading-plans-new__value-text">{currentData[size].novice?.profitTarget}</span>
                     </div>
                   ))}
                 </div>
                 <div className="trading-plans-new__table-row">
                   <div className="trading-plans-new__feature-cell">
-                    <span className="trading-plans-new__feature-icon">🎯</span>
+                    <span className="trading-plans-new__feature-icon"><ProfitSplit/></span>
                     <div className="trading-plans-new__feature-text">
                       <span className="trading-plans-new__feature-title">Profit Target</span>
-                      <span className="trading-plans-new__feature-subtitle">Phase 2</span>
+                      <span className="trading-plans-new__feature-subtitle">Expert</span>
                     </div>
                   </div>
                   {accountSizes.map((size) => (
                     <div key={size} className="trading-plans-new__value-cell">
-                      <span className="trading-plans-new__value-text">{currentData[size].profitTargetPhase2}</span>
+                      <span className="trading-plans-new__value-text">{currentData[size].expert?.profitTarget}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : activeChallengeType === 'instant-master' || activeChallengeType === 'instant-master-pro' ? (
+              <>
+                <div className="trading-plans-new__table-row">
+                  <div className="trading-plans-new__feature-cell">
+                    <span className="trading-plans-new__feature-icon"><Clock/></span>
+                    <div className="trading-plans-new__feature-text">
+                      <span className="trading-plans-new__feature-title">Funded Stage</span>
+                      <span className="trading-plans-new__feature-subtitle">ARC Funded Traders</span>
+                    </div>
+                  </div>
+                  {accountSizes.map((size) => (
+                    <div key={size} className="trading-plans-new__value-cell">
+                      <span className="trading-plans-new__value-text">{currentData[size].accountBalance}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="trading-plans-new__table-row">
+                  <div className="trading-plans-new__feature-cell">
+                    <span className="trading-plans-new__feature-icon"><ProfitSplit/></span>
+                    <div className="trading-plans-new__feature-text">
+                      <span className="trading-plans-new__feature-title">Profit Target</span>
+                    </div>
+                  </div>
+                  {accountSizes.map((size) => (
+                    <div key={size} className="trading-plans-new__value-cell">
+                      <span className="trading-plans-new__value-text">{currentData[size].profitTarget}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="trading-plans-new__table-row">
+                  <div className="trading-plans-new__feature-cell">
+                    <span className="trading-plans-new__feature-icon"><ProfitSplit/></span>
+                    <div className="trading-plans-new__feature-text">
+                      <span className="trading-plans-new__feature-title">Profit Share</span>
+                    </div>
+                  </div>
+                  {accountSizes.map((size) => (
+                    <div key={size} className="trading-plans-new__value-cell">
+                      <span className="trading-plans-new__value-text">{currentData[size].profitShare}</span>
                     </div>
                   ))}
                 </div>
@@ -416,96 +385,238 @@ const TradingPlans = () => {
                   <span className="trading-plans-new__feature-icon">🎯</span>
                   <div className="trading-plans-new__feature-text">
                     <span className="trading-plans-new__feature-title">Profit Target</span>
+                    <span className="trading-plans-new__feature-subtitle">ARC Funded Traders</span>
                   </div>
                 </div>
                 {accountSizes.map((size) => (
                   <div key={size} className="trading-plans-new__value-cell">
-                    <span className="trading-plans-new__value-text">{currentData[size].profitTarget}</span>
+                    <span className="trading-plans-new__value-text">{currentData[size].funded?.profitTarget}</span>
                   </div>
                 ))}
               </div>
             )}
 
-            {/* Max Drawdown Row */}
-            <div className="trading-plans-new__table-row">
-              <div className="trading-plans-new__feature-cell">
-                <span className="trading-plans-new__feature-icon">📉</span>
-                <div className="trading-plans-new__feature-text">
-                  <span className="trading-plans-new__feature-title">Max Drawdown</span>
-                  <span className="trading-plans-new__feature-subtitle">Trailing</span>
+            {/* Max Loss Row */}
+            {activeChallengeType === 'two-step' ? (
+              <>
+                <div className="trading-plans-new__table-row">
+                  <div className="trading-plans-new__feature-cell">
+                    <span className="trading-plans-new__feature-icon"><DailyLoss/></span>
+                    <div className="trading-plans-new__feature-text">
+                      <span className="trading-plans-new__feature-title">Maximum Daily Loss</span>
+                      <span className="trading-plans-new__feature-subtitle">Novice</span>
+                    </div>
+                  </div>
+                  {accountSizes.map((size) => (
+                    <div key={size} className="trading-plans-new__value-cell">
+                      <span className="trading-plans-new__value-text">{currentData[size].novice?.maxLoss}</span>
+                    </div>
+                  ))}
                 </div>
+                <div className="trading-plans-new__table-row">
+                  <div className="trading-plans-new__feature-cell">
+                    <span className="trading-plans-new__feature-icon"><DailyLoss/></span>
+                    <div className="trading-plans-new__feature-text">
+                      <span className="trading-plans-new__feature-title">Maximum Daily Loss</span>
+                      <span className="trading-plans-new__feature-subtitle">Expert</span>
+                    </div>
+                  </div>
+                  {accountSizes.map((size) => (
+                    <div key={size} className="trading-plans-new__value-cell">
+                      <span className="trading-plans-new__value-text">{currentData[size].expert?.maxLoss}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : activeChallengeType === 'instant-master' || activeChallengeType === 'instant-master-pro' ? (
+              <div className="trading-plans-new__table-row">
+                <div className="trading-plans-new__feature-cell">
+                  <span className="trading-plans-new__feature-icon"><DailyLoss/></span>
+                  <div className="trading-plans-new__feature-text">
+                    <span className="trading-plans-new__feature-title">Maximum Daily Loss</span>
+                  </div>
+                </div>
+                {accountSizes.map((size) => (
+                  <div key={size} className="trading-plans-new__value-cell">
+                    <span className="trading-plans-new__value-text">{currentData[size].maxDailyLoss}</span>
+                  </div>
+                ))}
               </div>
-              {accountSizes.map((size) => (
-                <div key={size} className="trading-plans-new__value-cell">
-                  <span className="trading-plans-new__value-text">{currentData[size].maxDrawdown}</span>
+            ) : (
+              <div className="trading-plans-new__table-row">
+                <div className="trading-plans-new__feature-cell">
+                  <span className="trading-plans-new__feature-icon">📉</span>
+                  <div className="trading-plans-new__feature-text">
+                    <span className="trading-plans-new__feature-title">Maximum Daily Loss</span>
+                    <span className="trading-plans-new__feature-subtitle">Novice</span>
+                  </div>
                 </div>
-              ))}
-            </div>
+                {accountSizes.map((size) => (
+                  <div key={size} className="trading-plans-new__value-cell">
+                    <span className="trading-plans-new__value-text">{currentData[size].maxLoss}</span>
+                  </div>
+                ))}
+              </div>
+            )}
 
-            {/* Daily Drawdown Row */}
-            <div className="trading-plans-new__table-row">
-              <div className="trading-plans-new__feature-cell">
-                <span className="trading-plans-new__feature-icon">⚡</span>
-                <div className="trading-plans-new__feature-text">
-                  <span className="trading-plans-new__feature-title">Daily Drawdown</span>
+            {/* Maximum Overall Loss Row */}
+            {activeChallengeType === 'two-step' ? (
+              <>
+                <div className="trading-plans-new__table-row">
+                  <div className="trading-plans-new__feature-cell">
+                    <span className="trading-plans-new__feature-icon"><MaxLoss/></span>
+                    <div className="trading-plans-new__feature-text">
+                      <span className="trading-plans-new__feature-title">Maximum Overall Loss</span>
+                      <span className="trading-plans-new__feature-subtitle">Novice</span>
+                    </div>
+                  </div>
+                  {accountSizes.map((size) => (
+                    <div key={size} className="trading-plans-new__value-cell">
+                      <span className="trading-plans-new__value-text">{currentData[size].novice?.maxOverallLoss}</span>
+                    </div>
+                  ))}
                 </div>
+                <div className="trading-plans-new__table-row">
+                  <div className="trading-plans-new__feature-cell">
+                    <span className="trading-plans-new__feature-icon"><MaxLoss/></span>
+                    <div className="trading-plans-new__feature-text">
+                      <span className="trading-plans-new__feature-title">Maximum Overall Loss</span>
+                      <span className="trading-plans-new__feature-subtitle">Expert</span>
+                    </div>
+                  </div>
+                  {accountSizes.map((size) => (
+                    <div key={size} className="trading-plans-new__value-cell">
+                      <span className="trading-plans-new__value-text">{currentData[size].expert?.maxOverallLoss}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : activeChallengeType === 'instant-master' || activeChallengeType === 'instant-master-pro' ? (
+              <div className="trading-plans-new__table-row">
+                <div className="trading-plans-new__feature-cell">
+                  <span className="trading-plans-new__feature-icon"><MaxLoss/></span>
+                  <div className="trading-plans-new__feature-text">
+                    <span className="trading-plans-new__feature-title">Maximum Overall Loss</span>
+                  </div>
+                </div>
+                {accountSizes.map((size) => (
+                  <div key={size} className="trading-plans-new__value-cell">
+                    <span className="trading-plans-new__value-text">{currentData[size].maxOverallLoss}</span>
+                  </div>
+                ))}
               </div>
-              {accountSizes.map((size) => (
-                <div key={size} className="trading-plans-new__value-cell">
-                  <span className="trading-plans-new__value-text">{currentData[size].dailyDrawdown}</span>
+            ) : (
+              <div className="trading-plans-new__table-row">
+                <div className="trading-plans-new__feature-cell">
+                  <span className="trading-plans-new__feature-icon"><DailyLoss/></span>
+                  <div className="trading-plans-new__feature-text">
+                    <span className="trading-plans-new__feature-title">Daily Drawdown</span>
+                  </div>
                 </div>
-              ))}
-            </div>
+                {accountSizes.map((size) => (
+                  <div key={size} className="trading-plans-new__value-cell">
+                    <span className="trading-plans-new__value-text">{currentData[size].dailyDrawdown}</span>
+                  </div>
+                ))}
+              </div>
+            )}
 
-            {/* Rewards Row */}
-            <div className="trading-plans-new__table-row">
-              <div className="trading-plans-new__feature-cell">
-                <span className="trading-plans-new__feature-icon">💰</span>
-                <div className="trading-plans-new__feature-text">
-                  <span className="trading-plans-new__feature-title">Rewards</span>
+            {/* Minimum Days Row (Two-Step Only) */}
+            {activeChallengeType === 'two-step' ? (
+              <>
+                <div className="trading-plans-new__table-row">
+                  <div className="trading-plans-new__feature-cell">
+                    <span className="trading-plans-new__feature-icon"><Clock/></span>
+                    <div className="trading-plans-new__feature-text">
+                      <span className="trading-plans-new__feature-title">Minimum Days</span>
+                      <span className="trading-plans-new__feature-subtitle">Novice</span>
+                    </div>
+                  </div>
+                  {accountSizes.map((size) => (
+                    <div key={size} className="trading-plans-new__value-cell">
+                      <span className="trading-plans-new__value-text">{currentData[size].novice?.minmumDay}</span>
+                    </div>
+                  ))}
                 </div>
+                <div className="trading-plans-new__table-row">
+                  <div className="trading-plans-new__feature-cell">
+                    <span className="trading-plans-new__feature-icon"><Clock/></span>
+                    <div className="trading-plans-new__feature-text">
+                      <span className="trading-plans-new__feature-title">Minimum Days</span>
+                      <span className="trading-plans-new__feature-subtitle">Expert</span>
+                    </div>
+                  </div>
+                  {accountSizes.map((size) => (
+                    <div key={size} className="trading-plans-new__value-cell">
+                      <span className="trading-plans-new__value-text">{currentData[size].expert?.minmumDay}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : activeChallengeType === 'instant-master' || activeChallengeType === 'instant-master-pro' ? (
+              <div className="trading-plans-new__table-row">
+                <div className="trading-plans-new__feature-cell">
+                  <span className="trading-plans-new__feature-icon"><Clock/></span>
+                  <div className="trading-plans-new__feature-text">
+                    <span className="trading-plans-new__feature-title">Minimum Trading Days</span>
+                  </div>
+                </div>
+                {accountSizes.map((size) => (
+                  <div key={size} className="trading-plans-new__value-cell">
+                    <span className="trading-plans-new__value-text">{currentData[size].minimumTradingDays}</span>
+                  </div>
+                ))}
               </div>
-              {accountSizes.map((size) => (
-                <div key={size} className="trading-plans-new__value-cell">
-                  <span className="trading-plans-new__value-text">{currentData[size].rewards}</span>
+            ) : (
+              <>
+                <div className="trading-plans-new__table-row">
+                  <div className="trading-plans-new__feature-cell">
+                    <span className="trading-plans-new__feature-icon">💰</span>
+                    <div className="trading-plans-new__feature-text">
+                      <span className="trading-plans-new__feature-title">Rewards</span>
+                    </div>
+                  </div>
+                  {accountSizes.map((size) => (
+                    <div key={size} className="trading-plans-new__value-cell">
+                      <span className="trading-plans-new__value-text">{currentData[size].rewards}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
 
-            {/* Profit Split Row */}
-            <div className="trading-plans-new__table-row">
-              <div className="trading-plans-new__feature-cell">
-                <span className="trading-plans-new__feature-icon">💹</span>
-                <div className="trading-plans-new__feature-text">
-                  <span className="trading-plans-new__feature-title">Profit Split</span>
+                <div className="trading-plans-new__table-row">
+                  <div className="trading-plans-new__feature-cell">
+                    <span className="trading-plans-new__feature-icon">💹</span>
+                    <div className="trading-plans-new__feature-text">
+                      <span className="trading-plans-new__feature-title">Profit Split</span>
+                    </div>
+                  </div>
+                  {accountSizes.map((size) => (
+                    <div key={size} className="trading-plans-new__value-cell">
+                      <span className="trading-plans-new__value-text">{currentData[size].profitSplit}</span>
+                    </div>
+                  ))}
                 </div>
-              </div>
-              {accountSizes.map((size) => (
-                <div key={size} className="trading-plans-new__value-cell">
-                  <span className="trading-plans-new__value-text">{currentData[size].profitSplit}</span>
-                </div>
-              ))}
-            </div>
 
-            {/* Time Limit Row */}
-            <div className="trading-plans-new__table-row">
-              <div className="trading-plans-new__feature-cell">
-                <span className="trading-plans-new__feature-icon">⏰</span>
-                <div className="trading-plans-new__feature-text">
-                  <span className="trading-plans-new__feature-title">Time Limit</span>
+                <div className="trading-plans-new__table-row">
+                  <div className="trading-plans-new__feature-cell">
+                    <span className="trading-plans-new__feature-icon">⏰</span>
+                    <div className="trading-plans-new__feature-text">
+                      <span className="trading-plans-new__feature-title">Time Limit</span>
+                    </div>
+                  </div>
+                  {accountSizes.map((size) => (
+                    <div key={size} className="trading-plans-new__value-cell">
+                      <span className="trading-plans-new__value-text">{currentData[size].timeLimit}</span>
+                    </div>
+                  ))}
                 </div>
-              </div>
-              {accountSizes.map((size) => (
-                <div key={size} className="trading-plans-new__value-cell">
-                  <span className="trading-plans-new__value-text">{currentData[size].timeLimit}</span>
-                </div>
-              ))}
-            </div>
+              </>
+            )}
 
             {/* One-Time Fee Row */}
             <div className="trading-plans-new__table-row">
               <div className="trading-plans-new__feature-cell">
-                <span className="trading-plans-new__feature-icon">💳</span>
+                <span className="trading-plans-new__feature-icon"></span>
                 <div className="trading-plans-new__feature-text">
                   <span className="trading-plans-new__feature-title">One-Time Fee</span>
                 </div>
@@ -514,9 +625,13 @@ const TradingPlans = () => {
                 <div key={size} className="trading-plans-new__value-cell">
                   <div className="trading-plans-new__pricing">
                     <span className="trading-plans-new__current-price">{currentData[size].price}</span>
-                    <span className="trading-plans-new__strike-price">{currentData[size].strikePrice}</span>
+                    {currentData[size].strikePrice && (
+                      <span className="trading-plans-new__strike-price">{currentData[size].strikePrice}</span>
+                    )}
                   </div>
-                  <div className="trading-plans-new__discount-code">{currentData[size].code}</div>
+                  {currentData[size].code && (
+                    <div className="trading-plans-new__discount-code">{currentData[size].code}</div>
+                  )}
                 </div>
               ))}
             </div>
@@ -526,16 +641,15 @@ const TradingPlans = () => {
               <div className="trading-plans-new__feature-cell"></div>
               {accountSizes.map((size) => (
                 <div key={size} className="trading-plans-new__value-cell">
-                  <button 
-                    className={`trading-plans-new__cta-button ${currentData[size].highlight ? 'highlight' : ''}`}
-                  >
+                   <Button variant="primary" size="large"  >
                     Start Now
-                  </button>
+                 </Button>
                 </div>
               ))}
             </div>
           </div>
         )}
+      </div>
       </div>
     </section>
   );

@@ -12,7 +12,7 @@
   font-family: "Poppins";
   src: url("../fonts/Poppins/Poppins-Regular.ttf") format("truetype");
   font-weight: 400;
-  font-display: swap; 
+  font-display: swap;
   font-style: normal;
 }
 
@@ -20,7 +20,7 @@
   font-family: "Poppins";
   src: url("./../fonts/Poppins/Poppins-Medium.ttf") format("truetype");
   font-weight: 500;
-  font-display: swap; 
+  font-display: swap;
   font-style: normal;
 }
 
@@ -28,7 +28,7 @@
   font-family: "Poppins";
   src: url("./../fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
   font-weight: 600;
-  font-display: swap; 
+  font-display: swap;
   font-style: normal;
 }
 
@@ -36,7 +36,7 @@
   font-family: "Poppins";
   src: url("./../fonts/Poppins/Poppins-Bold.ttf") format("truetype");
   font-weight: 700;
-  font-display: swap; 
+  font-display: swap;
   font-style: normal;
 }
 
@@ -52,7 +52,12 @@ html {
   scroll-behavior: smooth;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.2;
   font-weight: 700;
 }
@@ -80,6 +85,11 @@ img {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 1rem;
+
+  @media (max-width: 1536px) {
+    max-width: 1280px;
+
+  }
 
   @media (min-width: 640px) {
     padding: 0 1.5rem;
