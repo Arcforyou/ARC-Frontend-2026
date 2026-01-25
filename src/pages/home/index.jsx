@@ -2,6 +2,7 @@ import React from 'react';
 import image from '../../utils/helper';
 import Button from '../../components/Button/Button';
 import TradingPlans from '../../components/TradingPlans/TradingPlans';
+import { Rewards } from '../../components';
 import './home.scss';
 const Home = () => {
   return (
@@ -242,6 +243,7 @@ const Home = () => {
     </div>
         <div className='bottom-section'>
           <TradingPlans />
+          <Rewards />
         </div>
       </div>
   );
