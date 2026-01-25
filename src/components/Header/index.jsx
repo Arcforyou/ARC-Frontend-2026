@@ -5,20 +5,7 @@ import image from '../../utils/helper';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState('Select Language');
 
-  const languages = [
-    { code: 'en', name: 'English' },
-    { code: 'es', name: 'Spanish' },
-    { code: 'fr', name: 'French' },
-    { code: 'de', name: 'German' },
-  ];
-
-  const handleLanguageSelect = (language) => {
-    setSelectedLanguage(language.name);
-    setIsDropdownOpen(false);
-  };
   return (
     <header className="header">
       <div className="header__container">
@@ -35,32 +22,12 @@ const Header = () => {
 
         {/* Actions */}
         <div className="header__actions">
-          <div className="header__dropdown">
-            <button 
-              className={`dropdown-btn ${isDropdownOpen ? 'open' : ''}`}
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            >
-              <span className="dropdown-text">{selectedLanguage}</span>
-              <span className="dropdown-arrow">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </span>
-            </button>
-            {isDropdownOpen && (
-              <div className="dropdown-menu">
-                {languages.map((language) => (
-                  <button
-                    key={language.code}
-                    className="dropdown-item"
-                    onClick={() => handleLanguageSelect(language)}
-                  >
-                    {language.name}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+          <select className="header__select">
+            <option value="">Select Language</option>
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+          </select>
           <button className="header__search">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />

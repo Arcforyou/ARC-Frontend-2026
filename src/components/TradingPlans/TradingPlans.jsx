@@ -9,54 +9,48 @@ const TradingPlans = () => {
 
   const tabs = [
     {
-      id: 'forex',
-      title: 'Forex',
+      id: 'standard',
+      title: 'Standard Account',
       subtitle: 'Raw spreads and low commissions',
       icon: '€'
     },
     {
-      id: 'crypto',
-      title: 'Crypto',
+      id: 'customixed',
+      title: 'Customized Account',
       subtitle: '50+ Crypto coins to trade',
       icon: '₿'
     },
-    {
-      id: 'futures',
-      title: 'Futures',
-      subtitle: 'Professional Futures trading platform',
-      icon: '🚀'
-    }
   ];
 
   const challengeTypes = [
-    {
-      id: 'one-step',
-      title: 'One-Step',
-      badge: 'Popular',
-      features: ['Fastest evaluation', 'Only 9% profit target'],
-      isActive: true
-    },
+    // {
+    //   id: 'one-step',
+    //   title: 'One-Step',
+    //   badge: 'Popular',
+    //   features: ['Fastest evaluation', 'Only 9% profit target'],
+    //   isActive: true
+    // },
     {
       id: 'two-step',
-      title: 'Two-Step',
+      title: 'Two-Phase Challenge',
       features: ['Traditional evaluation', '4% DD, 10% MD']
     },
-    {
-      id: 'three-step',
-      title: 'Three-Step',
-      features: ['Cheapest evaluation', 'Lowest profit targets']
-    },
+    // {
+    //   id: 'three-step',
+    //   title: 'Three-Step',
+    //   features: ['Cheapest evaluation', 'Lowest profit targets']
+    // },
     {
       id: 'instant-master',
-      title: 'Instant Master',
+      title: 'Instant Funding',
       features: ['Fastest rewards', 'No Challenge needed']
     },
-    {
-      id: 'instant-master-pro',
-      title: 'Instant Master PRO',
-      badge: 'Labs',
-      features: ['Just one rule', 'No consistency & DD']
-    }
+    // {
+    //   id: 'instant-master-pro',
+    //   title: 'Instant Master PRO',
+    //   badge: 'Labs',
+    //   features: ['Just one rule', 'No consistency & DD']
+    // }
   ];
 
   const plans = [
@@ -234,6 +228,7 @@ const TradingPlans = () => {
   return (
     <section className="trading-plans">
       <div className="container">
+        <div className='main-inner'>
         {/* Tabs */}
         <div className="trading-plans__tabs">
           {tabs.map((tab) => (
@@ -250,7 +245,7 @@ const TradingPlans = () => {
             </button>
           ))}
         </div>
-
+        <div className='trading-plans__main-container'>
         {/* Challenge Types */}
         <div className="trading-plans__challenge-types">
           {challengeTypes.map((type) => (
@@ -455,6 +450,8 @@ const TradingPlans = () => {
             </Button>
           </div>
         </div>
+        </div>
+      </div>
       </div>
     </section>
   );

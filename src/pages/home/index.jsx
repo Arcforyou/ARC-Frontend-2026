@@ -23,11 +23,11 @@ const Home = () => {
             ARC CHALLENGE
           </Button>
         </div>
+      </div>
+    </div>
         <div className='bottom-section'>
           <TradingPlans />
         </div>
-      </div>
-    </div>
       </div>
   );
 };

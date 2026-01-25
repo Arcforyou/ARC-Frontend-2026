@@ -4,7 +4,8 @@
     background-position: center;
     min-height: 100vh;
     height: 100%;
-    padding: 80px 0;
+    padding: 50px 0 150px 0;
+    background-position: bottom bottom;
     .clip-image{
         position: absolute;
         top: 120px;
@@ -36,13 +37,13 @@
         .first-label {
             padding: 20px 0;
             text-align: center;
-            font-size: 18px;
+            font-size: 20px;
             color: #8d97fd;
         }
 
         .title {
             text-align: center;
-            font-size: 66px;
+            font-size: 70px;
             font-weight: 500;
             color: var(--white);
             margin-bottom: 16px;
@@ -52,15 +53,14 @@
         }
 
         p {
-            font-size: 16px;
+            font-size: 18px;
             color: #cac9d1;
             max-width: 50%;
             margin: auto;
             margin-bottom: 40px;
         }
-        
-        .hero-btn {
-            margin-top: 20px;
+        .hero-btn{
+            margin: auto;
         }
     }
 
