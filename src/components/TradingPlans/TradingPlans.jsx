@@ -108,15 +108,171 @@ const TradingPlans = () => {
 
             {/* Account Size Selector */}
             <div className="trading-plans__account-selector">
-              {Object.keys(twoPhaseChallengeData).map((accountSize) => (
+              {Object.keys(getCurrentData()).map((accountSize) => (
                 <button
                   key={accountSize}
                   className={`trading-plans__account-btn ${selectedAccount === accountSize ? 'active' : ''}`}
                   onClick={() => setSelectedAccount(accountSize)}
                 >
-                  {twoPhaseChallengeData[accountSize].amount}
+                  {getCurrentData()[accountSize].amount}
                 </button>
               ))}
+            </div>
+
+            {/* Table */}
+            <div className="trading-plans__table">
+              {/* Header Row */}
+              <div className="trading-plans__table-row trading-plans__table-header">
+                <div className="trading-plans__feature-cell"></div>
+                {Object.keys(getCurrentData()).map((accountSize) => (
+                  <div key={accountSize} className="trading-plans__value-cell">
+                    <div className="trading-plans__plan-amount">{getCurrentData()[accountSize].amount}</div>
+                    <div className="trading-plans__plan-label">Virtual Capital</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* AI Coach Row */}
+              <div className="trading-plans__table-row">
+                <div className="trading-plans__feature-cell">
+                  <span className="trading-plans__feature-icon">🤖</span>
+                  <div className="trading-plans__feature-text">
+                    <span className="trading-plans__feature-title">AI Coach</span>
+                    <span className="trading-plans__feature-subtitle">Your trading buddy</span>
+                  </div>
+                </div>
+                {Object.keys(getCurrentData()).map((accountSize) => (
+                  <div key={accountSize} className="trading-plans__value-cell">
+                    <div className="included-badge">💰 Included</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Profit Target Row */}
+              <div className="trading-plans__table-row">
+                <div className="trading-plans__feature-cell">
+                  <span className="trading-plans__feature-icon">🎯</span>
+                  <div className="trading-plans__feature-text">
+                    <span className="trading-plans__feature-title">Profit Target</span>
+                  </div>
+                </div>
+                {Object.keys(getCurrentData()).map((accountSize) => (
+                  <div key={accountSize} className="trading-plans__value-cell">
+                    <span className="value-text">{getCurrentData()[accountSize].profitTarget}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Max Drawdown Row */}
+              <div className="trading-plans__table-row">
+                <div className="trading-plans__feature-cell">
+                  <span className="trading-plans__feature-icon">📉</span>
+                  <div className="trading-plans__feature-text">
+                    <span className="trading-plans__feature-title">Max Drawdown</span>
+                    <span className="trading-plans__feature-subtitle">Trailing</span>
+                  </div>
+                </div>
+                {Object.keys(getCurrentData()).map((accountSize) => (
+                  <div key={accountSize} className="trading-plans__value-cell">
+                    <span className="value-text">{getCurrentData()[accountSize].maxDrawdown}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Daily Drawdown Row */}
+              <div className="trading-plans__table-row">
+                <div className="trading-plans__feature-cell">
+                  <span className="trading-plans__feature-icon">⚡</span>
+                  <div className="trading-plans__feature-text">
+                    <span className="trading-plans__feature-title">Daily Drawdown</span>
+                  </div>
+                </div>
+                {Object.keys(getCurrentData()).map((accountSize) => (
+                  <div key={accountSize} className="trading-plans__value-cell">
+                    <span className="value-text">{getCurrentData()[accountSize].dailyDrawdown}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Rewards Row */}
+              <div className="trading-plans__table-row">
+                <div className="trading-plans__feature-cell">
+                  <span className="trading-plans__feature-icon">💰</span>
+                  <div className="trading-plans__feature-text">
+                    <span className="trading-plans__feature-title">Rewards</span>
+                  </div>
+                </div>
+                {Object.keys(getCurrentData()).map((accountSize) => (
+                  <div key={accountSize} className="trading-plans__value-cell">
+                    <span className="value-text">{getCurrentData()[accountSize].rewards}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Profit Split Row */}
+              <div className="trading-plans__table-row">
+                <div className="trading-plans__feature-cell">
+                  <span className="trading-plans__feature-icon">💹</span>
+                  <div className="trading-plans__feature-text">
+                    <span className="trading-plans__feature-title">Profit Split</span>
+                  </div>
+                </div>
+                {Object.keys(getCurrentData()).map((accountSize) => (
+                  <div key={accountSize} className="trading-plans__value-cell">
+                    <span className="value-text">{getCurrentData()[accountSize].profitSplit}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Time Limit Row */}
+              <div className="trading-plans__table-row">
+                <div className="trading-plans__feature-cell">
+                  <span className="trading-plans__feature-icon">⏰</span>
+                  <div className="trading-plans__feature-text">
+                    <span className="trading-plans__feature-title">Time Limit</span>
+                  </div>
+                </div>
+                {Object.keys(getCurrentData()).map((accountSize) => (
+                  <div key={accountSize} className="trading-plans__value-cell">
+                    <span className="value-text">{getCurrentData()[accountSize].timeLimit}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Pricing Row */}
+              <div className="trading-plans__table-row">
+                <div className="trading-plans__feature-cell">
+                  <span className="trading-plans__feature-icon">💳</span>
+                  <div className="trading-plans__feature-text">
+                    <span className="trading-plans__feature-title">One-Time Fee</span>
+                  </div>
+                </div>
+                {Object.keys(getCurrentData()).map((accountSize) => (
+                  <div key={accountSize} className="trading-plans__value-cell">
+                    <div className="trading-plans__pricing-cell">
+                      <div className="trading-plans__plan-pricing">
+                        <span className="current-price">{getCurrentData()[accountSize].price}</span>
+                        <span className="strike-price">{getCurrentData()[accountSize].strikePrice}</span>
+                      </div>
+                      <div className="trading-plans__plan-badge">
+                        {accountSize === '100k' ? '100KBOGO' : 'TRADE15'}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA Row */}
+              <div className="trading-plans__table-row">
+                <div className="trading-plans__feature-cell"></div>
+                {Object.keys(getCurrentData()).map((accountSize) => (
+                  <div key={accountSize} className="trading-plans__value-cell">
+                    <button className="trading-plans__plan-button">
+                      Start Now
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Challenge Stages */}
