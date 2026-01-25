@@ -35,140 +35,33 @@ const TradingPlans = () => {
     }
   ];
 
-  // Two-Phase Challenge data extracted from screenshots
+  // Two-Phase Challenge data - values extracted from screenshots
   const twoPhaseChallengeData = {
-    '15k': {
-      amount: '$15k',
-      price: '$79',
-      novice: {
-        profitTarget: '$1,200 (8%)',
-        maxDailyLoss: '$750 (5%)',
-        maxOverallLoss: '$1,500 (10%)',
-        minTradingDays: '5 Days'
-      },
-      expert: {
-        profitTarget: '$750 (5%)',
-        maxDailyLoss: '$750 (5%)',
-        maxOverallLoss: '$1,500 (10%)',
-        minTradingDays: '5 Days'
-      },
-      funded: {
-        profitTarget: 'unlimited',
-        maxDailyLoss: '$750 (5%)',
-        maxOverallLoss: '$1,500 (10%)',
-        minTradingDays: '-'
-      }
-    },
-    '25k': {
-      amount: '$25k',
-      price: '$179',
-      novice: {
-        profitTarget: '$2,000 (8%)',
-        maxDailyLoss: '$1,250 (5%)',
-        maxOverallLoss: '$2,500 (10%)',
-        minTradingDays: '5 Days'
-      },
-      expert: {
-        profitTarget: '$1,250 (5%)',
-        maxDailyLoss: '$1,250 (5%)',
-        maxOverallLoss: '$2,500 (10%)',
-        minTradingDays: '5 Days'
-      },
-      funded: {
-        profitTarget: 'unlimited',
-        maxDailyLoss: '$1,250 (5%)',
-        maxOverallLoss: '$2,500 (10%)',
-        minTradingDays: '-'
-      }
-    },
-    '50k': {
-      amount: '$50k',
-      price: '$299',
-      novice: {
-        profitTarget: '$4,000 (8%)',
-        maxDailyLoss: '$2,500 (5%)',
-        maxOverallLoss: '$5,000 (10%)',
-        minTradingDays: '5 Days'
-      },
-      expert: {
-        profitTarget: '$2,500 (5%)',
-        maxDailyLoss: '$2,500 (5%)',
-        maxOverallLoss: '$5,000 (10%)',
-        minTradingDays: '5 Days'
-      },
-      funded: {
-        profitTarget: 'unlimited',
-        maxDailyLoss: '$2,500 (5%)',
-        maxOverallLoss: '$5,000 (10%)',
-        minTradingDays: '-'
-      }
-    },
-    '100k': {
-      amount: '$100k',
-      price: '$549',
-      novice: {
-        profitTarget: '$8,000 (8%)',
-        maxDailyLoss: '$5,000 (5%)',
-        maxOverallLoss: '$10,000 (10%)',
-        minTradingDays: '5 Days'
-      },
-      expert: {
-        profitTarget: '$5,000 (5%)',
-        maxDailyLoss: '$5,000 (5%)',
-        maxOverallLoss: '$10,000 (10%)',
-        minTradingDays: '5 Days'
-      },
-      funded: {
-        profitTarget: 'unlimited',
-        maxDailyLoss: '$5,000 (5%)',
-        maxOverallLoss: '$10,000 (10%)',
-        minTradingDays: '-'
-      }
-    },
-    '200k': {
-      amount: '$200k',
-      price: '$999',
-      novice: {
-        profitTarget: '$10,000 (8%)',
-        maxDailyLoss: '$5,000 (5%)',
-        maxOverallLoss: '$10,000 (10%)',
-        minTradingDays: '5 Days'
-      },
-      expert: {
-        profitTarget: '$10,000 (5%)',
-        maxDailyLoss: '$5,000 (5%)',
-        maxOverallLoss: '$10,000 (10%)',
-        minTradingDays: '5 Days'
-      },
-      funded: {
-        profitTarget: 'unlimited',
-        maxDailyLoss: '$10,000 (5%)',
-        maxOverallLoss: '$10,000 (10%)',
-        minTradingDays: '-'
-      }
-    }
+    '6k': { amount: '$6K', price: '$42', strikePrice: '$49', profitTarget: '9%', maxDrawdown: '6%', dailyDrawdown: '3%', rewards: 'Bi-Weekly', profitSplit: '80%', timeLimit: 'Unlimited' },
+    '15k': { amount: '$15K', price: '$84', strikePrice: '$99', profitTarget: '9%', maxDrawdown: '6%', dailyDrawdown: '3%', rewards: 'Bi-Weekly', profitSplit: '80%', timeLimit: 'Unlimited' },
+    '25k': { amount: '$25K', price: '$152', strikePrice: '$179', profitTarget: '9%', maxDrawdown: '6%', dailyDrawdown: '3%', rewards: 'Bi-Weekly', profitSplit: '80%', timeLimit: 'Unlimited' },
+    '50k': { amount: '$50K', price: '$212', strikePrice: '$249', profitTarget: '9%', maxDrawdown: '6%', dailyDrawdown: '3%', rewards: 'Bi-Weekly', profitSplit: '80%', timeLimit: 'Unlimited' },
+    '100k': { amount: '$100K', price: '$375', strikePrice: '$469', profitTarget: '9%', maxDrawdown: '6%', dailyDrawdown: '3%', rewards: 'Bi-Weekly', profitSplit: '80%', timeLimit: 'Unlimited' }
   };
 
-  // Placeholder data for Instant Funding (to be updated later)
+  // Instant Funding data (to be updated with next screenshots)
   const instantFundingData = {
-    '15k': {
-      amount: '$15k',
-      price: '$150',
-      // Will be populated with next screenshots
-    }
-    // ... other account sizes
+    '6k': { amount: '$6K', price: '$42', strikePrice: '$49', profitTarget: '9%', maxDrawdown: '6%', dailyDrawdown: '3%', rewards: 'Bi-Weekly', profitSplit: '80%', timeLimit: 'Unlimited' },
+    '15k': { amount: '$15K', price: '$84', strikePrice: '$99', profitTarget: '9%', maxDrawdown: '6%', dailyDrawdown: '3%', rewards: 'Bi-Weekly', profitSplit: '80%', timeLimit: 'Unlimited' },
+    '25k': { amount: '$25K', price: '$152', strikePrice: '$179', profitTarget: '9%', maxDrawdown: '6%', dailyDrawdown: '3%', rewards: 'Bi-Weekly', profitSplit: '80%', timeLimit: 'Unlimited' },
+    '50k': { amount: '$50K', price: '$212', strikePrice: '$249', profitTarget: '9%', maxDrawdown: '6%', dailyDrawdown: '3%', rewards: 'Bi-Weekly', profitSplit: '80%', timeLimit: 'Unlimited' },
+    '100k': { amount: '$100K', price: '$375', strikePrice: '$469', profitTarget: '9%', maxDrawdown: '6%', dailyDrawdown: '3%', rewards: 'Bi-Weekly', profitSplit: '80%', timeLimit: 'Unlimited' }
   };
 
   const getCurrentData = () => {
     if (activeChallenge === 'two-step') {
-      return twoPhaseChallengeData[selectedAccount];
+      return twoPhaseChallengeData;
     } else if (activeChallenge === 'instant-master') {
-      return instantFundingData[selectedAccount] || twoPhaseChallengeData[selectedAccount];
+      return instantFundingData;
     }
-    return twoPhaseChallengeData[selectedAccount];
+    return twoPhaseChallengeData;
   };
 
-  const currentData = getCurrentData();
 
   return (
     <section className="trading-plans">
