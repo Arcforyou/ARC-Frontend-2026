@@ -62,6 +62,30 @@ const TradingPlans = () => {
     return twoPhaseChallengeData;
   };
 
+  // Define stage data for the challenge stages
+  const stageData = {
+    novice: {
+      profitTarget: '8%',
+      maxDailyLoss: '5%',
+      maxOverallLoss: '10%',
+      minTradingDays: '5 Days'
+    },
+    expert: {
+      profitTarget: '5%',
+      maxDailyLoss: '5%',
+      maxOverallLoss: '10%',
+      minTradingDays: '5 Days'
+    },
+    funded: {
+      profitTarget: 'unlimited',
+      maxDailyLoss: '5%',
+      maxOverallLoss: '10%',
+      minTradingDays: '5 Days'
+    }
+  };
+
+  // Get selected account details
+  const selectedAccountDetails = getCurrentData()[selectedAccount];
 
   return (
     <section className="trading-plans">
@@ -286,19 +310,19 @@ const TradingPlans = () => {
                 <div className="trading-plans__stage-content">
                   <div className="trading-plans__stage-row">
                     <span className="trading-plans__stage-feature">Profit Target</span>
-                    <span className="trading-plans__stage-value">{currentData.novice.profitTarget}</span>
+                    <span className="trading-plans__stage-value">{stageData.novice.profitTarget}</span>
                   </div>
                   <div className="trading-plans__stage-row">
                     <span className="trading-plans__stage-feature">Maximum Daily Loss</span>
-                    <span className="trading-plans__stage-value">{currentData.novice.maxDailyLoss}</span>
+                    <span className="trading-plans__stage-value">{stageData.novice.maxDailyLoss}</span>
                   </div>
                   <div className="trading-plans__stage-row">
                     <span className="trading-plans__stage-feature">Maximum Overall Loss</span>
-                    <span className="trading-plans__stage-value">{currentData.novice.maxOverallLoss}</span>
+                    <span className="trading-plans__stage-value">{stageData.novice.maxOverallLoss}</span>
                   </div>
                   <div className="trading-plans__stage-row">
                     <span className="trading-plans__stage-feature">Minimum Trading Days</span>
-                    <span className="trading-plans__stage-value">{currentData.novice.minTradingDays}</span>
+                    <span className="trading-plans__stage-value">{stageData.novice.minTradingDays}</span>
                   </div>
                 </div>
               </div>
@@ -312,19 +336,19 @@ const TradingPlans = () => {
                 <div className="trading-plans__stage-content">
                   <div className="trading-plans__stage-row">
                     <span className="trading-plans__stage-feature">Profit Target</span>
-                    <span className="trading-plans__stage-value">{currentData.expert.profitTarget}</span>
+                    <span className="trading-plans__stage-value">{stageData.expert.profitTarget}</span>
                   </div>
                   <div className="trading-plans__stage-row">
                     <span className="trading-plans__stage-feature">Maximum Daily Loss</span>
-                    <span className="trading-plans__stage-value">{currentData.expert.maxDailyLoss}</span>
+                    <span className="trading-plans__stage-value">{stageData.expert.maxDailyLoss}</span>
                   </div>
                   <div className="trading-plans__stage-row">
                     <span className="trading-plans__stage-feature">Maximum Overall Loss</span>
-                    <span className="trading-plans__stage-value">{currentData.expert.maxOverallLoss}</span>
+                    <span className="trading-plans__stage-value">{stageData.expert.maxOverallLoss}</span>
                   </div>
                   <div className="trading-plans__stage-row">
                     <span className="trading-plans__stage-feature">Minimum Trading Days</span>
-                    <span className="trading-plans__stage-value">{currentData.expert.minTradingDays}</span>
+                    <span className="trading-plans__stage-value">{stageData.expert.minTradingDays}</span>
                   </div>
                 </div>
               </div>
@@ -338,19 +362,19 @@ const TradingPlans = () => {
                 <div className="trading-plans__stage-content">
                   <div className="trading-plans__stage-row">
                     <span className="trading-plans__stage-feature">Profit Target</span>
-                    <span className="trading-plans__stage-value">{currentData.funded.profitTarget}</span>
+                    <span className="trading-plans__stage-value">{stageData.funded.profitTarget}</span>
                   </div>
                   <div className="trading-plans__stage-row">
                     <span className="trading-plans__stage-feature">Maximum Daily Loss</span>
-                    <span className="trading-plans__stage-value">{currentData.funded.maxDailyLoss}</span>
+                    <span className="trading-plans__stage-value">{stageData.funded.maxDailyLoss}</span>
                   </div>
                   <div className="trading-plans__stage-row">
                     <span className="trading-plans__stage-feature">Maximum Overall Loss</span>
-                    <span className="trading-plans__stage-value">{currentData.funded.maxOverallLoss}</span>
+                    <span className="trading-plans__stage-value">{stageData.funded.maxOverallLoss}</span>
                   </div>
                   <div className="trading-plans__stage-row">
                     <span className="trading-plans__stage-feature">Minimum Trading Days</span>
-                    <span className="trading-plans__stage-value">{currentData.funded.minTradingDays}</span>
+                    <span className="trading-plans__stage-value">{stageData.funded.minTradingDays}</span>
                   </div>
                 </div>
               </div>
@@ -359,7 +383,7 @@ const TradingPlans = () => {
             {/* Pricing and CTA */}
             <div className="trading-plans__pricing-section">
               <h3 className="trading-plans__pricing-title">
-                {currentData.price} For {currentData.amount} account
+                {selectedAccountDetails.price} For {selectedAccountDetails.amount} account
               </h3>
               <Button variant="primary" size="medium" className="trading-plans__cta-button">
                 Start Challenge
