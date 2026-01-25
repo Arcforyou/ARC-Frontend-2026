@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './footer.scss';
+import image from '../../utils/helper';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="footer__brand">
             <h3 className="footer__brand-title">
-              ARC<span style={{ color: 'var(--primary-green)' }}>Funded</span>
+              <img src={image['logo.png']} alt='logo' className='w-30'/>
             </h3>
             <p className="footer__brand-description">
               ARC Funded is a prop firm backed by the globally recognized broker ARC Markets. 

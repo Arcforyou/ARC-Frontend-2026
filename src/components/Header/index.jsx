@@ -13,7 +13,7 @@ const Header = () => {
         <Link to="/" className="header__logo"><img src={image['logo.png']} alt='logo' className='w-20'/></Link>
         {/* Desktop Navigation */}
         <nav className="header__nav">
-          <Link to="/" className="header__link" style={{color:"#fff"}}>Home</Link>
+          <Link to="/" className="header__link active">Home</Link>
           <Link to="/faq" className="header__link">FAQ</Link>
           <Link to="/how-it-works" className="header__link">How it Works</Link>
           <Link to="/about" className="header__link">About us</Link>

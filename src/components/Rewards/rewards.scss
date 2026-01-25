@@ -5,7 +5,7 @@
 
   &__content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: 80px;
     align-items: center;
 
@@ -22,7 +22,7 @@
   &__right {
     min-height: 600px;
     // Empty space for image
-    
+
     @media (max-width: 1024px) {
       min-height: 400px;
     }
@@ -49,24 +49,38 @@
     }
   }
 
+  
   &__cards {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 20px;
     grid-template-rows: auto auto;
-
+    position: relative;
+    opacity: 1;
+        overflow: hidden;
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
       gap: 16px;
     }
   }
+  &__linera-border {
+    // z-index: -1;
+    background: linear-gradient(227deg, rgb(21, 20, 58) 18%, rgb(68, 80, 172) 49%, rgb(21, 20, 58) 78%);
+    opacity: 1;
+    flex: none;
+    position: absolute;
+    inset: 0;
+    overflow: visible;
+  }
 
   &__card {
-    background: rgba(30, 41, 59, 0.6);
+    z-index: 1;
+    background: #080b31;
     border: 1px solid rgba(71, 85, 105, 0.3);
     border-radius: 16px;
     padding: 24px;
     backdrop-filter: blur(10px);
+    position: relative;
 
     &--large {
       grid-column: 1;
@@ -95,7 +109,7 @@
   }
 
   &__card-title {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 600;
     color: var(--white);
     margin: 0;
@@ -110,7 +124,7 @@
     color: #60A5FA;
     padding: 4px 12px;
     border-radius: 20px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     border: 1px solid rgba(59, 130, 246, 0.3);
 
@@ -189,20 +203,6 @@
   }
 
   &__button {
-    background: transparent;
-    border: 1px solid rgba(71, 85, 105, 0.5);
-    color: var(--white);
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    align-self: flex-start;
-
-    &:hover {
-      border-color: var(--primary-cyan);
-      background: rgba(0, 212, 255, 0.1);
-    }
+    width: 100%;
   }
 }

@@ -25,17 +25,17 @@ const Home = () => {
           </Button>
           
           {/* Feature Cards Section */}
+        </div>
           <div className="feature-cards-section">
             <div className="feature-card" style={{ animationDelay: '0.2s' }}>
               <div className="feature-card-content">
                 <div className="feature-card-text">
                   <h3 className="feature-card-title">90%+</h3>
                   <h4 className="feature-card-subtitle">Profit Split</h4>
-                  <p className="feature-card-description">Maximized returns for traders</p>
                 </div>
                 <div className="feature-card-visual">
                   <div className="chart-container">
-                    <div className="donut-chart">
+                    {/* <div className="donut-chart">
                       <svg viewBox="0 0 42 42" className="donut">
                         <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="rgba(255,255,255,0.1)" strokeWidth="3"/>
                         <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="url(#gradient1)" strokeWidth="3" strokeDasharray="90 10" strokeDashoffset="25"/>
@@ -46,7 +46,7 @@ const Home = () => {
                           <stop offset="100%" stopColor="#B8FF3C"/>
                         </linearGradient>
                       </defs>
-                    </div>
+                    </div> */}
                     <div className="bar-chart">
                       <div className="bar" style={{ height: '60%' }}></div>
                       <div className="bar" style={{ height: '80%' }}></div>
@@ -55,7 +55,7 @@ const Home = () => {
                       <div className="bar" style={{ height: '70%' }}></div>
                     </div>
                   </div>
-                  <div className="trading-chart">
+                  {/* <div className="trading-chart">
                     <div className="chart-line">
                       <svg viewBox="0 0 200 80" className="line-chart">
                         <path d="M10,60 Q50,20 90,40 T170,20" stroke="url(#gradient2)" strokeWidth="2" fill="none"/>
@@ -76,7 +76,7 @@ const Home = () => {
                       <div className="mini-bar" style={{ height: '90%' }}></div>
                       <div className="mini-bar" style={{ height: '70%' }}></div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -86,9 +86,8 @@ const Home = () => {
                 <div className="feature-card-text">
                   <h3 className="feature-card-title">300K+</h3>
                   <h4 className="feature-card-subtitle">Trading Accounts</h4>
-                  <p className="feature-card-description">Active traders worldwide</p>
                 </div>
-                <div className="feature-card-visual">
+                {/* <div className="feature-card-visual">
                   <div className="chart-container">
                     <div className="donut-chart">
                       <svg viewBox="0 0 42 42" className="donut">
@@ -132,7 +131,7 @@ const Home = () => {
                       <div className="mini-bar" style={{ height: '75%' }}></div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -141,9 +140,8 @@ const Home = () => {
                 <div className="feature-card-text">
                   <h3 className="feature-card-title">Fully Customizable</h3>
                   <h4 className="feature-card-subtitle">Accounts</h4>
-                  <p className="feature-card-description">Tailor your trading experience</p>
                 </div>
-                <div className="feature-card-visual">
+                {/* <div className="feature-card-visual">
                   <div className="chart-container">
                     <div className="settings-icon">
                       <svg viewBox="0 0 24 24" fill="none">
@@ -188,7 +186,7 @@ const Home = () => {
                       <div className="control-toggle active"></div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -197,9 +195,8 @@ const Home = () => {
                 <div className="feature-card-text">
                   <h3 className="feature-card-title">No time limit</h3>
                   <h4 className="feature-card-subtitle">in challenge phase</h4>
-                  <p className="feature-card-description">Take your time to meet trading goals</p>
                 </div>
-                <div className="feature-card-visual">
+                {/* <div className="feature-card-visual">
                   <div className="time-visual">
                     <div className="calendar-icon">
                       <svg viewBox="0 0 24 24" fill="none">
@@ -234,16 +231,15 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
         <div className='bottom-section'>
-          <TradingPlans />
           <Rewards />
+          <TradingPlans />
         </div>
       </div>
   );

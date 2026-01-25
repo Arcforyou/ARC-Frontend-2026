@@ -1,5 +1,6 @@
 import React from 'react';
 import './rewards.scss';
+import Button from '../Button/Button';
 
 const Rewards = () => {
   return (
@@ -17,6 +18,7 @@ const Rewards = () => {
               {/* Evaluation Process Card */}
               <div className="rewards__card rewards__card--large">
                 <div className="rewards__card-header">
+                {/* <div className='rewards__linera-border'></div> */}
                   <h3 className="rewards__card-title">Evaluation Process</h3>
                   <span className="rewards__badge">Demo</span>
                 </div>
@@ -60,7 +62,7 @@ const Rewards = () => {
                     <span className="rewards__feature-text">Trading Tools & Services</span>
                   </div>
                 </div>
-                <button className="rewards__button">Learn More</button>
+                <Button className="rewards__button">Learn More</Button>
               </div>
 
               {/* ARC Account Card */}
@@ -111,7 +113,7 @@ const Rewards = () => {
                     <span className="rewards__feature-text">All - Trading Tools & Services</span>
                   </div>
                 </div>
-                <button className="rewards__button">Learn More</button>
+                <Button className="rewards__button">Learn More</Button>
               </div>
             </div>
           </div>
