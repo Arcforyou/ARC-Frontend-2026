@@ -6,9 +6,8 @@
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 
   &.scrolled {
-    background: rgba(26, 29, 61, 0.9);
+    background: #00031c;
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(60, 71, 154, 0.3);
   }
 
   &__container {

@@ -40,9 +40,9 @@
         .first-label {
             padding: 20px 0;
             text-align: center;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 600;
-            color: #00D4FF;
+            color: #8d97fd;
             position: relative;
             display: inline-block;
             letter-spacing: 2px;
@@ -56,7 +56,7 @@
                 width: 60px;
                 height: 2px;
                 background: linear-gradient(90deg, transparent 0%, #00D4FF 50%, transparent 100%);
-                box-shadow: 0 0 10px #00D4FF, 0 0 20px #00D4FF;
+                // box-shadow: 0 0 10px #00D4FF, 0 0 20px #00D4FF;
             }
             
             &::before {
@@ -69,21 +69,16 @@
                 animation: glowPulse 2s ease-in-out infinite alternate;
             }
             
-            // Text glow effect
-            text-shadow: 
-                0 0 5px #00D4FF,
-                0 0 10px #00D4FF,
-                0 0 15px #00D4FF,
-                0 0 20px #00D4FF;
+
             
             @keyframes glowPulse {
                 0% {
                     opacity: 0.6;
-                    box-shadow: 0 0 5px #00D4FF, 0 0 10px #00D4FF;
+                    // box-shadow: 0 0 5px #00D4FF, 0 0 10px #00D4FF;
                 }
                 100% {
                     opacity: 1;
-                    box-shadow: 0 0 10px #00D4FF, 0 0 20px #00D4FF, 0 0 30px #00D4FF;
+                    // box-shadow: 0 0 10px #00D4FF, 0 0 20px #00D4FF, 0 0 30px #00D4FF;
                 }
             }
             
@@ -209,8 +204,8 @@
     }
 
     .feature-card-title {
-        font-size: 30px;
-        font-weight: 700;
+        font-size: 24px;
+        font-weight: 600;
         background: linear-gradient(135deg, #00D4FF 0%, #B8FF3C 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
