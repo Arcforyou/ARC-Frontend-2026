@@ -4,7 +4,6 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family: "Poppins" !important;
   font-display: swap;
 }
 
@@ -46,6 +45,8 @@ body {
   background: var(--dark-bg);
   color: var(--text-primary);
   overflow-x: hidden;
+  font-family: "Red Rose", serif !important;
+
 }
 
 html {
@@ -71,7 +72,7 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
-  font-family: "Poppins" !important;
+  font-family: "Poppins";
 }
 
 img {

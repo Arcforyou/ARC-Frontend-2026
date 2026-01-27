@@ -1,31 +1,51 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import image from '../../utils/helper';
 import Button from '../../components/Button/Button';
 import TradingPlans from '../../components/TradingPlans/TradingPlans';
 import { Rewards } from '../../components';
 import './home.scss';
+import gsap from "gsap";
+import SplitType from "split-type"
+
 const Home = () => {
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const split = new SplitType(textRef.current, {
+      types: "chars", // words | lines | chars
+    });
+
+    gsap.from(split.chars, {
+      x: -100,
+      opacity: 0,
+      stagger: 0.04,
+      duration: 0.7,
+      ease: "power3.out",
+    });
+
+    return () => split.revert(); // cleanup (important for React)
+  }, []);
   return (
     <div className="home-main-wrapped ">
-    <div className="hero-wrapped" >
-      {/* <img src={image['bg.png']} alt='' /> */}
-      <div className='first-gradient'></div>
-      <div className='clip-image'>
-        <img src={image['clip.svg']} alt='clip-img'/>
-      </div>
-
-      <div className='home-container'>
-        <div className='main-content'>
-          <div className='first-label'>ARC</div>
-          <h1 className='title'>Built for Traders, <br />Backed by Professionals!</h1>
-          <p>Master your trading skills on our simulated trading platform,
-            improve your trading on a demo ARC Account with up to $300,000 and get a reward of up to 90% of your simulated profits</p>
-          <Button variant="primary" size="large" className="hero-btn">
-            ARC CHALLENGE
-          </Button>
-          
-          {/* Feature Cards Section */}
+      <div className="hero-wrapped" >
+        {/* <img src={image['bg.png']} alt='' /> */}
+        <div className='first-gradient'></div>
+        <div className='clip-image'>
+          <img src={image['clip.svg']} alt='clip-img' />
         </div>
+
+        <div className='home-container'>
+          <div className='main-content'>
+            <div className='first-label'>ARC</div>
+            <h1 className='title' ref={textRef}>Built for Traders, <br />Backed by Professionals!</h1>
+            <p>Master your trading skills on our simulated trading platform,
+              improve your trading on a demo ARC Account with up to $300,000 and get a reward of up to 90% of your simulated profits</p>
+            <Button variant="primary" size="large" className="hero-btn">
+              ARC CHALLENGE
+            </Button>
+
+            {/* Feature Cards Section */}
+          </div>
           <div className="feature-cards-section">
             <div className="feature-card" style={{ animationDelay: '0.2s' }}>
               <div className="feature-card-content">
@@ -235,13 +255,13 @@ const Home = () => {
               </div>
             </div>
           </div>
-      </div>
-    </div>
-        <div className='bottom-section'>
-          <Rewards />
-          <TradingPlans />
         </div>
       </div>
+      <div className='bottom-section'>
+        <Rewards />
+        <TradingPlans />
+      </div>
+    </div>
   );
 };
 
