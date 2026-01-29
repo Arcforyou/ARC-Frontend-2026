@@ -129,8 +129,25 @@ const Home2 = () => {
 
             {/* Right Side - Video Placeholder (Not implemented as requested) */}
             <div className="home2-right">
-              <img src={image['graph-green.png']} alt='img' className='w-full' />
-              {/* Video section intentionally left empty as per requirements */}
+              <div className="animated-chart">
+                <div className="chart-container">
+                  <div className="bar" style={{'--height': '100%', '--delay': '0s'}}></div>
+                  <div className="bar" style={{'--height': '85%', '--delay': '0.2s'}}></div>
+                  <div className="bar" style={{'--height': '95%', '--delay': '0.4s'}}></div>
+                  <div className="bar" style={{'--height': '75%', '--delay': '0.6s'}}></div>
+                  <div className="bar" style={{'--height': '80%', '--delay': '0.8s'}}></div>
+                  <div className="bar" style={{'--height': '65%', '--delay': '1.0s'}}></div>
+                  <div className="bar" style={{'--height': '70%', '--delay': '1.2s'}}></div>
+                  <div className="bar" style={{'--height': '55%', '--delay': '1.4s'}}></div>
+                  <div className="bar" style={{'--height': '60%', '--delay': '1.6s'}}></div>
+                  <div className="bar" style={{'--height': '45%', '--delay': '1.8s'}}></div>
+                  <div className="bar" style={{'--height': '50%', '--delay': '2.0s'}}></div>
+                  <div className="bar" style={{'--height': '35%', '--delay': '2.2s'}}></div>
+                  <div className="bar" style={{'--height': '40%', '--delay': '2.4s'}}></div>
+                  <div className="bar" style={{'--height': '25%', '--delay': '2.6s'}}></div>
+                  <div className="bar" style={{'--height': '30%', '--delay': '2.8s'}}></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
