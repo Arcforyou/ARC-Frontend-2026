@@ -2,6 +2,7 @@
 import { createBrowserRouter,RouterProvider } from "react-router-dom";
 import { PublicRoute } from "./authRoute";
 import Home from "../pages/home";
+import Home2 from "../pages/home2";
 import MainLayout from "../components/layout/Layout";
 
 const Router = () => {
@@ -10,6 +11,7 @@ const Router = () => {
       element: <MainLayout />,
       children: [
         {path: "/", element: <Home />},
+        {path: "/home2", element: <Home2 />},
         // {path: "/login", element: <Login />},
         // {path: "/forget",element: <ForgetPassword />},
         // {path: "/verify",element: <VerifyEmail/>}
