@@ -368,6 +368,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 2;
   
   @media (max-width: 768px) {
     width: 100%;
@@ -382,6 +384,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 3;
   
   @media (max-width: 768px) {
     height: 300px;
@@ -394,6 +398,11 @@
   gap: 8px;
   height: 300px;
   padding: 20px;
+  position: relative;
+  z-index: 4;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
   
   @media (max-width: 768px) {
     height: 250px;
@@ -416,6 +425,7 @@
   animation: fillBar 1s ease-out forwards;
   animation-delay: var(--delay);
   box-shadow: 0 0 10px rgba(196, 255, 13, 0.3);
+  min-height: 20px;
   
   @media (max-width: 768px) {
     width: 16px;
