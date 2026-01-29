@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './home2.scss';
+import image from '../../utils/helper';
 
 const Home2 = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,11 +19,11 @@ const Home2 = () => {
   return (
     <div className="home2-wrapper">
       {/* Header */}
-      <header className={`home2-header ${isScrolled ? 'scrolled' : ''}`}>
-        <div className="home2-header__container">
+      <header className={`home2-header container   ${isScrolled ? 'scrolled' : ''}`}>
+        <div className="home2-header__container ">
           {/* Logo */}
           <Link to="/" className="home2-header__logo">
-            for<span className="logo-highlight">traders</span>
+            <img src={image['logo.png']} alt="ARC Logo" className='w-24'/>
           </Link>
 
           {/* Desktop Navigation */}
@@ -69,7 +70,8 @@ const Home2 = () => {
 
       {/* Main Content */}
       <main className="home2-main">
-        <div className="home2-container">
+        <img src={image['shade.avif']} alt='img' className='shade-img'/>
+        <div className="container">
           <div className="home2-content">
             {/* Left Side Content */}
             <div className="home2-left">
@@ -88,8 +90,8 @@ const Home2 = () => {
 
               {/* Main Heading */}
               <h1 className="home2-title">
-                Our Challenge.<br />
-                Your Rules.
+                Built for Traders,<br />
+                Backed by Professionals!.
               </h1>
 
               {/* Feature Points */}
@@ -114,24 +116,26 @@ const Home2 = () => {
 
               {/* Description */}
               <p className="home2-description">
-                Learn to trade Forex, Crypto, and Futures on our simulated 
-                trading platform — and get rewarded with real cash for your 
-                skills.
+                Master your trading skills on our simulated trading platform,
+              improve your trading on a demo ARC Account with up to $300,000 and get a reward of up to 90% of your simulated profits.
               </p>
 
               {/* Action Buttons */}
               <div className="home2-actions">
-                <button className="primary-action-btn">Get Started</button>
+                <button className="primary-action-btn"> ARC CHALLENGE</button>
                 <button className="secondary-action-btn">How it works?</button>
               </div>
             </div>
 
             {/* Right Side - Video Placeholder (Not implemented as requested) */}
             <div className="home2-right">
+              <img src={image['graph-green.png']} alt='img' className='w-full' />
               {/* Video section intentionally left empty as per requirements */}
             </div>
           </div>
         </div>
+        {/* <img src={image['bg-green.avif']} alt='img' className='shade-img'/> */}
+
       </main>
     </div>
   );

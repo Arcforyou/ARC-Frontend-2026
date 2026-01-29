@@ -6,6 +6,7 @@ import { Rewards } from '../../components';
 import './home.scss';
 import gsap from "gsap";
 import SplitType from "split-type"
+import Header from '../../components/Header';
 
 const Home = () => {
   const textRef = useRef(null);
@@ -26,14 +27,15 @@ const Home = () => {
     return () => split.revert(); // cleanup (important for React)
   }, []);
   return (
-    <div className="home-main-wrapped ">
+    <>
+    <Header/>
+    <div className="home-main-wrapped">
       <div className="hero-wrapped" >
         {/* <img src={image['bg.png']} alt='' /> */}
         <div className='first-gradient'></div>
         <div className='clip-image'>
           <img src={image['clip.svg']} alt='clip-img' />
         </div>
-
         <div className='home-container'>
           <div className='main-content'>
             <div className='first-label'>ARC</div>
@@ -262,6 +264,7 @@ const Home = () => {
         <TradingPlans />
       </div>
     </div>
+    </>
   );
 };
 

@@ -6,7 +6,7 @@ import Footer from '../Footer';
 const MainLayout = () => {
     return (
         <div className="min-h-screen bg-dark-bg text-text-primary">
-            <Header />
+            {/* <Header /> */}
             <main>
                 <Outlet />
             </main>
