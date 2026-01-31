@@ -1,271 +1,209 @@
-import React, { useEffect, useRef } from 'react';
-import image from '../../utils/helper';
-import Button from '../../components/Button/Button';
-import TradingPlans from '../../components/TradingPlans/TradingPlans';
-import { Footer, Rewards } from '../../components';
+import React from 'react';
+import { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './home.scss';
-import gsap from "gsap";
-import SplitType from "split-type"
-import Header from '../../components/Header';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
-  const textRef = useRef(null);
-
   useEffect(() => {
-    const split = new SplitType(textRef.current, {
-      types: "chars", // words | lines | chars
-    });
+    // Animate sections on scroll
+    gsap.fromTo('.animate-section', 
+      {
+        opacity: 0,
+        y: 50
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: '.animate-section',
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    );
 
-    gsap.from(split.chars, {
-      x: -100,
-      opacity: 0,
-      stagger: 0.04,
-      duration: 0.7,
-      ease: "power3.out",
-    });
+    // Animate cards with stagger
+    gsap.fromTo('.animate-card',
+      {
+        opacity: 0,
+        y: 30,
+        scale: 0.95
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        ease: "power2.out",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '.animate-card',
+          start: 'top 85%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    );
 
-    return () => split.revert(); // cleanup (important for React)
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
+
   return (
-    <>
-      <Header />
-      <div className="home-main-wrapped">
-        <div className="hero-wrapped" >
-          {/* <img src={image['bg.png']} alt='' /> */}
-          <div className='first-gradient'></div>
-          <div className='clip-image'>
-            <img src={image['clip.svg']} alt='clip-img' />
-          </div>
-          <div className='home-container'>
-            <div className='main-content'>
-              <div className='first-label'>ARC</div>
-              <h1 className='title' ref={textRef}>Built for Traders, <br />Backed by Professionals!</h1>
-              <p>Master your trading skills on our simulated trading platform,
-                improve your trading on a demo ARC Account with up to $300,000 and get a reward of up to 90% of your simulated profits</p>
-              <Button variant="primary" size="large" className="hero-btn">
-                ARC CHALLENGE
-              </Button>
-
-              {/* Feature Cards Section */}
+    <div className="home-container">
+      {/* Header */}
+      <header className="header animate-section">
+        <div className="container">
+          <div className="nav">
+            <div className="logo">
+              <span>ARC</span>
             </div>
-            <div className="feature-cards-section">
-              <div className="feature-card" style={{ animationDelay: '0.2s' }}>
-                <div className="feature-card-content">
-                  <div className="feature-card-text">
-                    <h3 className="feature-card-title">90%+</h3>
-                    <h4 className="feature-card-subtitle">Profit Split</h4>
-                  </div>
-                  <div className="feature-card-visual">
-                    <div className="chart-container">
-                      {/* <div className="donut-chart">
-                      <svg viewBox="0 0 42 42" className="donut">
-                        <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="rgba(255,255,255,0.1)" strokeWidth="3"/>
-                        <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="url(#gradient1)" strokeWidth="3" strokeDasharray="90 10" strokeDashoffset="25"/>
-                      </svg>
-                      <defs>
-                        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#00D4FF"/>
-                          <stop offset="100%" stopColor="#B8FF3C"/>
-                        </linearGradient>
-                      </defs>
-                    </div> */}
-                      <div className="bar-chart">
-                        <div className="bar" style={{ height: '60%' }}></div>
-                        <div className="bar" style={{ height: '80%' }}></div>
-                        <div className="bar" style={{ height: '40%' }}></div>
-                        <div className="bar" style={{ height: '90%' }}></div>
-                        <div className="bar" style={{ height: '70%' }}></div>
-                      </div>
-                    </div>
-                    {/* <div className="trading-chart">
-                    <div className="chart-line">
-                      <svg viewBox="0 0 200 80" className="line-chart">
-                        <path d="M10,60 Q50,20 90,40 T170,20" stroke="url(#gradient2)" strokeWidth="2" fill="none"/>
-                        <defs>
-                          <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#00D4FF"/>
-                            <stop offset="100%" stopColor="#B8FF3C"/>
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                    </div>
-                    <div className="chart-bars">
-                      <div className="mini-bar" style={{ height: '30%' }}></div>
-                      <div className="mini-bar" style={{ height: '60%' }}></div>
-                      <div className="mini-bar" style={{ height: '45%' }}></div>
-                      <div className="mini-bar" style={{ height: '80%' }}></div>
-                      <div className="mini-bar" style={{ height: '55%' }}></div>
-                      <div className="mini-bar" style={{ height: '90%' }}></div>
-                      <div className="mini-bar" style={{ height: '70%' }}></div>
-                    </div>
-                  </div> */}
-                  </div>
-                </div>
-              </div>
+            <nav className="nav-links">
+              <a href="#features">Features</a>
+              <a href="#about">About</a>
+              <a href="#contact">Contact</a>
+            </nav>
+            <div className="nav-buttons">
+              <button className="btn-secondary">Login</button>
+              <button className="btn-primary">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </header>
 
-              <div className="feature-card" style={{ animationDelay: '0.4s' }}>
-                <div className="feature-card-content">
-                  <div className="feature-card-text">
-                    <h3 className="feature-card-title">300K+</h3>
-                    <h4 className="feature-card-subtitle">Trading Accounts</h4>
-                  </div>
-                  {/* <div className="feature-card-visual">
-                  <div className="chart-container">
-                    <div className="donut-chart">
-                      <svg viewBox="0 0 42 42" className="donut">
-                        <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="rgba(255,255,255,0.1)" strokeWidth="3"/>
-                        <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="url(#gradient3)" strokeWidth="3" strokeDasharray="75 25" strokeDashoffset="25"/>
-                      </svg>
-                      <defs>
-                        <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#6f42c1"/>
-                          <stop offset="100%" stopColor="#00D4FF"/>
-                        </linearGradient>
-                      </defs>
-                    </div>
-                    <div className="bar-chart">
-                      <div className="bar" style={{ height: '70%' }}></div>
-                      <div className="bar" style={{ height: '50%' }}></div>
-                      <div className="bar" style={{ height: '85%' }}></div>
-                      <div className="bar" style={{ height: '65%' }}></div>
-                      <div className="bar" style={{ height: '90%' }}></div>
-                    </div>
-                  </div>
-                  <div className="trading-chart">
-                    <div className="chart-line">
-                      <svg viewBox="0 0 200 80" className="line-chart">
-                        <path d="M10,50 Q50,30 90,35 T170,25" stroke="url(#gradient4)" strokeWidth="2" fill="none"/>
-                        <defs>
-                          <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#6f42c1"/>
-                            <stop offset="100%" stopColor="#00D4FF"/>
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                    </div>
-                    <div className="chart-bars">
-                      <div className="mini-bar" style={{ height: '40%' }}></div>
-                      <div className="mini-bar" style={{ height: '70%' }}></div>
-                      <div className="mini-bar" style={{ height: '55%' }}></div>
-                      <div className="mini-bar" style={{ height: '85%' }}></div>
-                      <div className="mini-bar" style={{ height: '65%' }}></div>
-                      <div className="mini-bar" style={{ height: '95%' }}></div>
-                      <div className="mini-bar" style={{ height: '75%' }}></div>
-                    </div>
-                  </div>
-                </div> */}
-                </div>
-              </div>
-
-              <div className="feature-card" style={{ animationDelay: '0.6s' }}>
-                <div className="feature-card-content">
-                  <div className="feature-card-text">
-                    <h3 className="feature-card-title">Fully Customizable</h3>
-                    <h4 className="feature-card-subtitle">Accounts</h4>
-                  </div>
-                  {/* <div className="feature-card-visual">
-                  <div className="chart-container">
-                    <div className="settings-icon">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="url(#gradient5)" strokeWidth="2"/>
-                        <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" stroke="url(#gradient5)" strokeWidth="2"/>
-                        <defs>
-                          <linearGradient id="gradient5" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#00D4FF"/>
-                            <stop offset="100%" stopColor="#6f42c1"/>
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="controls-panel">
-                    <div className="control-row">
-                      <div className="control-bar">
-                        <div className="control-track"></div>
-                        <div className="control-thumb" style={{ left: '60%' }}></div>
-                      </div>
-                      <div className="control-toggle active"></div>
-                    </div>
-                    <div className="control-row">
-                      <div className="control-bar">
-                        <div className="control-track"></div>
-                        <div className="control-thumb" style={{ left: '40%' }}></div>
-                      </div>
-                      <div className="control-toggle"></div>
-                    </div>
-                    <div className="control-row">
-                      <div className="control-bar">
-                        <div className="control-track"></div>
-                        <div className="control-thumb" style={{ left: '80%' }}></div>
-                      </div>
-                      <div className="control-toggle active"></div>
-                    </div>
-                    <div className="control-row">
-                      <div className="control-bar">
-                        <div className="control-track"></div>
-                        <div className="control-thumb" style={{ left: '30%' }}></div>
-                      </div>
-                      <div className="control-toggle active"></div>
-                    </div>
-                  </div>
-                </div> */}
-                </div>
-              </div>
-
-              <div className="feature-card" style={{ animationDelay: '0.8s' }}>
-                <div className="feature-card-content">
-                  <div className="feature-card-text">
-                    <h3 className="feature-card-title">No time limit</h3>
-                    <h4 className="feature-card-subtitle">in challenge phase</h4>
-                  </div>
-                  {/* <div className="feature-card-visual">
-                  <div className="time-visual">
-                    <div className="calendar-icon">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="url(#gradient6)" strokeWidth="2"/>
-                        <line x1="16" y1="2" x2="16" y2="6" stroke="url(#gradient6)" strokeWidth="2"/>
-                        <line x1="8" y1="2" x2="8" y2="6" stroke="url(#gradient6)" strokeWidth="2"/>
-                        <line x1="3" y1="10" x2="21" y2="10" stroke="url(#gradient6)" strokeWidth="2"/>
-                        <circle cx="12" cy="16" r="2" fill="url(#gradient6)"/>
-                        <defs>
-                          <linearGradient id="gradient6" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#B8FF3C"/>
-                            <stop offset="100%" stopColor="#00D4FF"/>
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                    </div>
-                    <div className="clock-container">
-                      <div className="clock-face">
-                        <svg viewBox="0 0 100 100" className="clock">
-                          <circle cx="50" cy="50" r="45" fill="none" stroke="url(#gradient7)" strokeWidth="2"/>
-                          <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
-                          <line x1="50" y1="50" x2="50" y2="25" stroke="url(#gradient7)" strokeWidth="3" strokeLinecap="round"/>
-                          <line x1="50" y1="50" x2="65" y2="35" stroke="url(#gradient7)" strokeWidth="2" strokeLinecap="round"/>
-                          <circle cx="50" cy="50" r="3" fill="url(#gradient7)"/>
-                          <defs>
-                            <linearGradient id="gradient7" x1="0%" y1="0%" x2="100%" y2="100%">
-                              <stop offset="0%" stopColor="#00D4FF"/>
-                              <stop offset="100%" stopColor="#B8FF3C"/>
-                            </linearGradient>
-                          </defs>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
-                </div>
+      {/* Hero Section */}
+      <section className="hero animate-section">
+        <div className="container">
+          <div className="hero-content">
+            <div className="hero-text">
+              <h1>Trade Smarter, Not Harder</h1>
+              <p>Experience the future of trading with ARC's cutting-edge platform. 
+                 Advanced tools, real-time analytics, and seamless execution.</p>
+              <div className="hero-buttons">
+                <button className="btn-primary">Start Trading</button>
+                <button className="btn-secondary">Learn More</button>
               </div>
             </div>
           </div>
         </div>
-        <div className='bottom-section'>
-          <Rewards />
-          <TradingPlans />
+      </section>
+
+      {/* Features Section */}
+      <section className="features animate-section">
+        <div className="container">
+          <h2 className="section-title">Why Choose ARC?</h2>
+          <div className="features-grid">
+            <div className="feature-card animate-card">
+              <div className="feature-icon">⚡</div>
+              <h3>Lightning Fast</h3>
+              <p>Execute trades in milliseconds with our advanced infrastructure</p>
+            </div>
+            <div className="feature-card animate-card">
+              <div className="feature-icon">🔒</div>
+              <h3>Bank-Level Security</h3>
+              <p>Your funds are protected with military-grade encryption</p>
+            </div>
+            <div className="feature-card animate-card">
+              <div className="feature-icon">📊</div>
+              <h3>Advanced Analytics</h3>
+              <p>Make informed decisions with real-time market insights</p>
+            </div>
+            <div className="feature-card animate-card">
+              <div className="feature-icon">🌍</div>
+              <h3>Global Markets</h3>
+              <p>Access markets worldwide from a single platform</p>
+            </div>
+            <div className="feature-card animate-card">
+              <div className="feature-icon">📱</div>
+              <h3>Mobile Trading</h3>
+              <p>Trade on the go with our award-winning mobile app</p>
+            </div>
+            <div className="feature-card animate-card">
+              <div className="feature-icon">🎯</div>
+              <h3>Expert Support</h3>
+              <p>24/7 support from our team of trading professionals</p>
+            </div>
+          </div>
         </div>
-        <Footer />
-      </div>
-    </>
+      </section>
+
+      {/* Stats Section */}
+      <section className="stats animate-section">
+        <div className="container">
+          <div className="stats-grid">
+            <div className="stat-item animate-card">
+              <div className="stat-number">$2.5B+</div>
+              <div className="stat-label">Trading Volume</div>
+            </div>
+            <div className="stat-item animate-card">
+              <div className="stat-number">500K+</div>
+              <div className="stat-label">Active Traders</div>
+            </div>
+            <div className="stat-item animate-card">
+              <div className="stat-number">99.9%</div>
+              <div className="stat-label">Uptime</div>
+            </div>
+            <div className="stat-item animate-card">
+              <div className="stat-number">150+</div>
+              <div className="stat-label">Countries</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta animate-section">
+        <div className="container">
+          <div className="cta-content">
+            <h2>Ready to Start Trading?</h2>
+            <p>Join thousands of traders who trust ARC for their trading needs</p>
+            <button className="btn-primary">Get Started Today</button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer animate-section">
+        <div className="container">
+          <div className="footer-content">
+            <div className="footer-section">
+              <h3>ARC</h3>
+              <p>The future of trading is here</p>
+            </div>
+            <div className="footer-section">
+              <h4>Platform</h4>
+              <ul>
+                <li><a href="#">Web Trading</a></li>
+                <li><a href="#">Mobile App</a></li>
+                <li><a href="#">API</a></li>
+              </ul>
+            </div>
+            <div className="footer-section">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Status</a></li>
+              </ul>
+            </div>
+            <div className="footer-section">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Press</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
 };
 
