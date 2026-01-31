@@ -159,6 +159,199 @@ const Home2 = () => {
         </div>
         {/* <img src={image['bg-green.avif']} alt='img' className='shade-img'/> */}
       </main>
+      
+      {/* Testimonials Section */}
+      <section className="testimonials-section">
+        <div className="container">
+          <div className="testimonials-header">
+            <h2 className="testimonials-title">What Our Traders Say</h2>
+            <p className="testimonials-subtitle">Join thousands of successful traders who trust ARC</p>
+          </div>
+          
+          <div className="testimonials-marquee">
+            <div className="testimonials-track">
+              {/* First set of testimonials */}
+              <div className="testimonial-card">
+                <div className="testimonial-rating">
+                  <div className="stars">
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                  </div>
+                </div>
+                <p className="testimonial-text">
+                  "ARC has completely transformed my trading journey. The platform is intuitive and the profit sharing is exactly as promised. I've been able to scale my account to $100K!"
+                </p>
+                <div className="testimonial-author">
+                  <div className="author-avatar">JD</div>
+                  <div className="author-info">
+                    <div className="author-name">John Davis</div>
+                    <div className="author-title">Professional Trader</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="testimonial-card">
+                <div className="testimonial-rating">
+                  <div className="stars">
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                  </div>
+                </div>
+                <p className="testimonial-text">
+                  "The evaluation process was fair and transparent. I passed both phases and now I'm trading with $200K. The support team is incredibly responsive!"
+                </p>
+                <div className="testimonial-author">
+                  <div className="author-avatar">SM</div>
+                  <div className="author-info">
+                    <div className="author-name">Sarah Miller</div>
+                    <div className="author-title">Forex Trader</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="testimonial-card">
+                <div className="testimonial-rating">
+                  <div className="stars">
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                  </div>
+                </div>
+                <p className="testimonial-text">
+                  "Best prop firm I've worked with. No hidden fees, fast payouts, and the trading conditions are excellent. Highly recommend to serious traders."
+                </p>
+                <div className="testimonial-author">
+                  <div className="author-avatar">MR</div>
+                  <div className="author-info">
+                    <div className="author-name">Mike Rodriguez</div>
+                    <div className="author-title">Day Trader</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="testimonial-card">
+                <div className="testimonial-rating">
+                  <div className="stars">
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                  </div>
+                </div>
+                <p className="testimonial-text">
+                  "The customizable accounts feature is a game-changer. I was able to set my risk parameters exactly how I wanted. Professional service all around."
+                </p>
+                <div className="testimonial-author">
+                  <div className="author-avatar">AL</div>
+                  <div className="author-info">
+                    <div className="author-name">Alex Liu</div>
+                    <div className="author-title">Swing Trader</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="testimonial-card">
+                <div className="testimonial-rating">
+                  <div className="stars">
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                  </div>
+                </div>
+                <p className="testimonial-text">
+                  "90% profit split is unmatched in the industry. I've been consistently profitable and the payouts are always on time. ARC delivers on their promises."
+                </p>
+                <div className="testimonial-author">
+                  <div className="author-avatar">EJ</div>
+                  <div className="author-info">
+                    <div className="author-name">Emma Johnson</div>
+                    <div className="author-title">Scalp Trader</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Duplicate set for seamless loop */}
+              <div className="testimonial-card">
+                <div className="testimonial-rating">
+                  <div className="stars">
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                  </div>
+                </div>
+                <p className="testimonial-text">
+                  "ARC has completely transformed my trading journey. The platform is intuitive and the profit sharing is exactly as promised. I've been able to scale my account to $100K!"
+                </p>
+                <div className="testimonial-author">
+                  <div className="author-avatar">JD</div>
+                  <div className="author-info">
+                    <div className="author-name">John Davis</div>
+                    <div className="author-title">Professional Trader</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="testimonial-card">
+                <div className="testimonial-rating">
+                  <div className="stars">
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                  </div>
+                </div>
+                <p className="testimonial-text">
+                  "The evaluation process was fair and transparent. I passed both phases and now I'm trading with $200K. The support team is incredibly responsive!"
+                </p>
+                <div className="testimonial-author">
+                  <div className="author-avatar">SM</div>
+                  <div className="author-info">
+                    <div className="author-name">Sarah Miller</div>
+                    <div className="author-title">Forex Trader</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="testimonial-card">
+                <div className="testimonial-rating">
+                  <div className="stars">
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                    <span className="star">★</span>
+                  </div>
+                </div>
+                <p className="testimonial-text">
+                  "Best prop firm I've worked with. No hidden fees, fast payouts, and the trading conditions are excellent. Highly recommend to serious traders."
+                </p>
+                <div className="testimonial-author">
+                  <div className="author-avatar">MR</div>
+                  <div className="author-info">
+                    <div className="author-name">Mike Rodriguez</div>
+                    <div className="author-title">Day Trader</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div className='home2-sections'>
         <div className='upbox'></div>
         <div className='bottombox'></div>

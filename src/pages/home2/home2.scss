@@ -76,6 +76,13 @@
     .trading-plans-new {
       &__value-cell {
         background-color: #121517;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background-color: #1a1f22;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(196, 255, 13, 0.1);
+        }
       }
 
       &__main-inner {
@@ -90,10 +97,24 @@
 
       &__value-cell {
         background-color: #1e2326;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background-color: #252a2e;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(196, 255, 13, 0.1);
+        }
       }
 
       &__account-header {
         background-color: #1e2326;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background-color: #252a2e;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(196, 255, 13, 0.15);
+        }
       }
 
       &__account-amount {
@@ -107,9 +128,21 @@
       &__challenge-type {
         background: #1e2326;
         border: none;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: #252a2e;
+          transform: translateY(-3px);
+          box-shadow: 0 10px 25px rgba(196, 255, 13, 0.1);
+          border: 1px solid rgba(196, 255, 13, 0.3);
+        }
         
         &.active {
           border: 2px solid #bdf60d;
+          
+          &:hover {
+            box-shadow: 0 10px 25px rgba(196, 255, 13, 0.2);
+          }
         }
       }
 
@@ -154,6 +187,11 @@
           font-size: 16px;
         }
       }
+      
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(196, 255, 13, 0.3);
+      }
     }
   }
 
@@ -171,6 +209,13 @@
     &__newsletter-button {
       background: #bff80d;
       color: #000000;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: #a8e60a;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(196, 255, 13, 0.3);
+      }
     }
 
     &__bottom-copyright {
@@ -190,6 +235,188 @@
         opacity: 0.8;
       }
     }
+  }
+}
+
+// Testimonials Section
+.testimonials-section {
+  padding: 100px 0;
+  background: #051a15;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: #c4ff0d;
+    filter: blur(150px);
+    opacity: 0.1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: #c4ff0d;
+    filter: blur(180px);
+    opacity: 0.08;
+  }
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 2;
+
+  .testimonials-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    line-height: 1.2;
+
+    @media (max-width: 768px) {
+      font-size: 36px;
+    }
+  }
+
+  .testimonials-subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.testimonials-marquee {
+  position: relative;
+  overflow: hidden;
+  mask: linear-gradient(90deg, transparent 0%, white 10%, white 90%, transparent 100%);
+  -webkit-mask: linear-gradient(90deg, transparent 0%, white 10%, white 90%, transparent 100%);
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 30px;
+  animation: marqueeScroll 40s linear infinite;
+  width: fit-content;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.testimonial-card {
+  background: #1e2326;
+  border: 1px solid rgba(196, 255, 13, 0.2);
+  border-radius: 16px;
+  padding: 32px;
+  min-width: 400px;
+  max-width: 400px;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    min-width: 320px;
+    max-width: 320px;
+    padding: 24px;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: #c4ff0d;
+    box-shadow: 0 20px 40px rgba(196, 255, 13, 0.1);
+    
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(196, 255, 13, 0.05) 0%, transparent 50%);
+    border-radius: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+}
+
+.testimonial-rating {
+  margin-bottom: 20px;
+
+  .stars {
+    display: flex;
+    gap: 4px;
+
+    .star {
+      color: #c4ff0d;
+      font-size: 18px;
+    }
+  }
+}
+
+.testimonial-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #c4ff0d, #84cc16);
+  color: #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.author-info {
+  .author-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+
+  .author-title {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
   }
 }
 
@@ -281,7 +508,8 @@
       transition: background 0.2s ease;
 
       &:hover {
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(196, 255, 13, 0.1);
+        color: #c4ff0d;
       }
 
       .globe-icon {
@@ -309,7 +537,7 @@
 
       &:hover {
         color: #ffffff;
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(196, 255, 13, 0.1);
       }
     }
 
@@ -326,7 +554,8 @@
 
       &:hover {
         background: #b3e60c;
-        transform: translateY(-1px);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(196, 255, 13, 0.3);
       }
     }
   }
@@ -519,7 +748,8 @@
 
     &:hover {
       background: #b3e60c;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(196, 255, 13, 0.4);
     }
   }
 
