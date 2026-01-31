@@ -1,31 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import './home2.scss';
 import image from '../../utils/helper';
-import { Footer, Rewards, TradingPlans } from '../../components';
+import { TradingPlans, Rewards } from '../../components';
 
 const Home2 = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const [restart, setRestart] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRestart(prev => prev + 1);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
   return (
     <div className="home2-wrapper">
       {/* Header */}
@@ -37,30 +15,24 @@ const Home2 = () => {
           </Link>
           {/* Desktop Navigation */}
           <nav className="home2-header__nav">
-            <Link to="/tournaments" className="nav-link active">Home 2</Link>
-
-            <Link to="/tournaments" className="nav-link">FAQ</Link>
-
-            <Link to="/tournaments" className="nav-link">How it Works</Link>
-
-            <Link to="/tournaments" className="nav-link">About us</Link>
-
-            <Link to="/rewards" className="nav-link">Client Area</Link>
+            <a href="/" className="nav-link active">Home</a>
+            <a href="/faq" className="nav-link">FAQ</a>
+            <a href="/how-it-works" className="nav-link">How it Works</a>
+            <a href="/about" className="nav-link">About us</a>
+            <a href="/client-area" className="nav-link">Client Area</a>
           </nav>
 
-          {/* Actions */}
           <div className="home2-header__actions">
             <div className="language-selector">
-              <svg className="globe-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.5" />
-                <path d="M1 8h14M8 1a7 7 0 0 1 5.29 2.71A7 7 0 0 1 8 15a7 7 0 0 1-5.29-2.71A7 7 0 0 1 8 1z" stroke="currentColor" strokeWidth="1.5" />
+              <svg className="globe-icon" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clipRule="evenodd" />
               </svg>
               <span>EN</span>
-              <svg className="dropdown-icon" width="12" height="8" viewBox="0 0 12 8" fill="none">
-                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <svg className="dropdown-icon" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
             </div>
-            <button className="login-btn">Log In</button>
+            <button className="login-btn">Login</button>
             <button className="get-started-btn">Get Started</button>
           </div>
         </div>
@@ -68,98 +40,96 @@ const Home2 = () => {
 
       {/* Main Content */}
       <main className="home2-main">
-        <img src={image['shade.avif']} alt='img' className='shade-img' />
-        <div className="container">
+        <img src={image['shade.avif']} alt="Background shade" className="shade-img" />
+        
+        <div className="home2-sections">
+          <div className="upbox"></div>
+          <div className="bottombox"></div>
+        </div>
+
+        <div className="home2-container">
           <div className="home2-content">
-            {/* Left Side Content */}
             <div className="home2-left">
               {/* Rating Badge */}
               <div className="rating-badge">
                 <div className="stars">
-                  <span className="star">★</span>
-                  <span className="star">★</span>
-                  <span className="star">★</span>
-                  <span className="star">★</span>
-                  <span className="star">★</span>
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="star">★</span>
+                  ))}
                 </div>
-                <span className="rating-score">4.8</span>
-                <span className="rating-text">Prop Firm Match</span>
+                <span className="rating-score">4.9</span>
+                <span className="rating-text">Trusted by 10k+ traders</span>
               </div>
 
-              {/* Main Heading */}
+              {/* Main Title */}
               <h1 className="home2-title">
-                Built for Traders,<br />
-                Backed by Professionals!.
+                Trade with Confidence, Grow with ARC
               </h1>
 
               {/* Feature Points */}
               <div className="feature-points">
                 <div className="feature-point">
-                  <div className="feature-label">90%</div>
-                  <div className="feature-value">Profit Split</div>
+                  <div className="feature-label">Up to</div>
+                  <div className="feature-value">$200K</div>
                 </div>
                 <div className="feature-point">
-                  <div className="feature-label">300K+</div>
-                  <div className="feature-value">Trading Accounts</div>
+                  <div className="feature-label">Profit Split</div>
+                  <div className="feature-value">90%</div>
                 </div>
                 <div className="feature-point">
-                  <div className="feature-label">Accounts</div>
-                  <div className="feature-value">Fully Customizable</div>
+                  <div className="feature-label">Payout</div>
+                  <div className="feature-value">Weekly</div>
                 </div>
                 <div className="feature-point">
-                  <div className="feature-label">No time limit</div>
-                  <div className="feature-value">In challenge phase</div>
+                  <div className="feature-label">Support</div>
+                  <div className="feature-value">24/7</div>
                 </div>
               </div>
 
               {/* Description */}
               <p className="home2-description">
-                Master your trading skills on our simulated trading platform,
-                improve your trading on a demo ARC Account with up to $300,000 and get a reward of up to 90% of your simulated profits.
+                Join thousands of successful traders who trust ARC for their trading journey. 
+                Experience advanced tools, real-time analytics, and professional support that 
+                helps you achieve consistent profitability.
               </p>
 
               {/* Action Buttons */}
               <div className="home2-actions">
-                <button className="primary-action-btn"> ARC CHALLENGE</button>
+                <button className="primary-action-btn">Start Your Challenge</button>
+                <button className="secondary-action-btn">Learn More →</button>
               </div>
             </div>
 
-            {/* Right Side - Video Placeholder (Not implemented as requested) */}
             <div className="home2-right">
-              <div className="animated-chart" key={restart}>
+              <div className="animated-chart">
                 <div className="chart-container">
-                  {/* LEFT IMAGE */}
-                  <div className="chart-image left">
-                    <img src={image['a.png']} alt="Left" />
-                  </div>
-
-                  {/* CENTER IMAGE */}
-                  <div className="chart-image center">
-                    <img src={image['r.png']} alt="Center" />
-                  </div>
-
-                  {/* RIGHT IMAGE */}
-                  <div className="chart-image right">
-                    <img src={image['c.png']} alt="Right" />
-                  </div>
-
-                  <div className="bar" style={{ '--height': '100%', '--delay': '0s' }}></div>
-                  <div className="bar" style={{ '--height': '85%', '--delay': '0.2s' }}></div>
-                  <div className="bar" style={{ '--height': '70%', '--delay': '0.4s' }}></div>
-                  <div className="bar" style={{ '--height': '60%', '--delay': '0.6s' }}></div>
-                  <div className="bar" style={{ '--height': '50%', '--delay': '0.8s' }}></div>
-                  <div className="bar" style={{ '--height': '45%', '--delay': '1.0s' }}></div>
-                  <div className="bar" style={{ '--height': '35%', '--delay': '1.2s' }}></div>
-                  <div className="bar" style={{ '--height': '25%', '--delay': '1.4s' }}></div>
-                  <div className="bar" style={{ '--height': '25%', '--delay': '1.6s' }}></div>
+                  {[60, 80, 45, 90, 70, 95, 55, 85, 75, 100, 65, 88, 72, 92, 78].map((height, index) => (
+                    <div 
+                      key={index}
+                      className="bar"
+                      style={{
+                        '--height': `${height}%`,
+                        '--delay': `${index * 0.1}s`
+                      }}
+                    />
+                  ))}
+                </div>
+                
+                <div className="chart-image left">
+                  <img src={image['graph-green.png']} alt="Trading graph" />
+                </div>
+                <div className="chart-image center">
+                  <img src={image['300k copy.png']} alt="300k profit" />
+                </div>
+                <div className="chart-image right">
+                  <img src={image['image_69.png']} alt="Trading stats" />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        {/* <img src={image['bg-green.avif']} alt='img' className='shade-img'/> */}
       </main>
-      
+
       {/* Testimonials Section */}
       <section className="testimonials-section">
         <div className="container">
@@ -352,17 +322,15 @@ const Home2 = () => {
         </div>
       </section>
 
-      <div className='home2-sections'>
-        <div className='upbox'></div>
-        <div className='bottombox'></div>
+      {/* Rewards Section */}
+      <div>
         <Rewards />
       </div>
-      <div className='home2-sections'>
-        {/* <div className='upbox'></div> */}
-        <div className='bottombox'></div>
+
+      {/* Trading Plans Section */}
+      <div>
         <TradingPlans />
       </div>
-      <Footer />
     </div>
   );
 };
