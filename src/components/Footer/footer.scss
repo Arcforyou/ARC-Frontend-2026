@@ -33,7 +33,7 @@
     }
 
     &-description {
-      color: var(--text-secondary);
+      color: var(--white);
       line-height: 1.6;
       margin-bottom: 32px;
       font-size: 16px;
@@ -54,7 +54,7 @@
     }
 
     &-link {
-      color: var(--text-secondary);
+      color: var(--white);
       transition: color 0.2s ease;
 
       &:hover {
@@ -159,7 +159,7 @@
       }
 
       &-link {
-        color: var(--text-secondary);
+        color: var(--white);
         text-decoration: none;
         font-size: 14px;
         transition: color 0.2s ease;
@@ -177,7 +177,7 @@
     margin-bottom: 24px;
 
     &-text {
-      color: var(--text-muted);
+      color: var(--white);
       font-size: 12px;
       line-height: 1.5;
     }

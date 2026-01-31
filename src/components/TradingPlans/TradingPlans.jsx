@@ -275,6 +275,7 @@ const TradingPlans = () => {
                     </li>
                   ))}
                 </ul>
+                <div class="trading-plans-new__stat-glow"></div>
               </div>
             ))}
           </div>
