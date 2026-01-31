@@ -1,64 +1,11 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './home.scss';
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Home = () => {
-  useEffect(() => {
-    // Animate sections on scroll
-    gsap.fromTo('.animate-section', 
-      {
-        opacity: 0,
-        y: 50
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: '.animate-section',
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
-        }
-      }
-    );
-
-    // Animate cards with stagger
-    gsap.fromTo('.animate-card',
-      {
-        opacity: 0,
-        y: 30,
-        scale: 0.95
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.6,
-        ease: "power2.out",
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: '.animate-card',
-          start: 'top 85%',
-          toggleActions: 'play none none reverse'
-        }
-      }
-    );
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
-
   return (
     <div className="home-container">
       {/* Header */}
-      <header className="header animate-section">
+      <header className="header">
         <div className="container">
           <div className="nav">
             <div className="logo">
@@ -78,7 +25,7 @@ const Home = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="hero animate-section">
+      <section className="hero">
         <div className="container">
           <div className="hero-content">
             <div className="hero-text">
@@ -95,36 +42,36 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="features animate-section">
+      <section className="features">
         <div className="container">
           <h2 className="section-title">Why Choose ARC?</h2>
           <div className="features-grid">
-            <div className="feature-card animate-card">
+            <div className="feature-card">
               <div className="feature-icon">⚡</div>
               <h3>Lightning Fast</h3>
               <p>Execute trades in milliseconds with our advanced infrastructure</p>
             </div>
-            <div className="feature-card animate-card">
+            <div className="feature-card">
               <div className="feature-icon">🔒</div>
               <h3>Bank-Level Security</h3>
               <p>Your funds are protected with military-grade encryption</p>
             </div>
-            <div className="feature-card animate-card">
+            <div className="feature-card">
               <div className="feature-icon">📊</div>
               <h3>Advanced Analytics</h3>
               <p>Make informed decisions with real-time market insights</p>
             </div>
-            <div className="feature-card animate-card">
+            <div className="feature-card">
               <div className="feature-icon">🌍</div>
               <h3>Global Markets</h3>
               <p>Access markets worldwide from a single platform</p>
             </div>
-            <div className="feature-card animate-card">
+            <div className="feature-card">
               <div className="feature-icon">📱</div>
               <h3>Mobile Trading</h3>
               <p>Trade on the go with our award-winning mobile app</p>
             </div>
-            <div className="feature-card animate-card">
+            <div className="feature-card">
               <div className="feature-icon">🎯</div>
               <h3>Expert Support</h3>
               <p>24/7 support from our team of trading professionals</p>
@@ -134,22 +81,22 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="stats animate-section">
+      <section className="stats">
         <div className="container">
           <div className="stats-grid">
-            <div className="stat-item animate-card">
+            <div className="stat-item">
               <div className="stat-number">$2.5B+</div>
               <div className="stat-label">Trading Volume</div>
             </div>
-            <div className="stat-item animate-card">
+            <div className="stat-item">
               <div className="stat-number">500K+</div>
               <div className="stat-label">Active Traders</div>
             </div>
-            <div className="stat-item animate-card">
+            <div className="stat-item">
               <div className="stat-number">99.9%</div>
               <div className="stat-label">Uptime</div>
             </div>
-            <div className="stat-item animate-card">
+            <div className="stat-item">
               <div className="stat-number">150+</div>
               <div className="stat-label">Countries</div>
             </div>
@@ -158,7 +105,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="cta animate-section">
+      <section className="cta">
         <div className="container">
           <div className="cta-content">
             <h2>Ready to Start Trading?</h2>
@@ -169,7 +116,7 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="footer animate-section">
+      <footer className="footer">
         <div className="container">
           <div className="footer-content">
             <div className="footer-section">

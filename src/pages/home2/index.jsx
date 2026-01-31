@@ -1,86 +1,13 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './home2.scss';
 import image from '../../utils/helper';
 import { TradingPlans, Rewards } from '../../components';
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Home2 = () => {
-  useEffect(() => {
-    // Animate sections on scroll
-    gsap.fromTo('.animate-section', 
-      { 
-        opacity: 0, 
-        y: 60 
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: '.animate-section',
-          start: "top 85%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-
-    // Animate cards with stagger
-    gsap.fromTo('.animate-card', 
-      { 
-        opacity: 0, 
-        y: 40,
-        scale: 0.95
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.6,
-        ease: "power2.out",
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: '.animate-card',
-          start: "top 80%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-
-    // Animate testimonial cards
-    gsap.fromTo('.testimonial-card', 
-      { 
-        opacity: 0, 
-        x: 50
-      },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: '.testimonials-section',
-          start: "top 80%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-
-    // Cleanup
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
-
   return (
     <div className="home2-wrapper">
       {/* Header */}
-      <header className="home2-header animate-section">
+      <header className="home2-header">
         <div className="home2-header__container container">
           <a href="/" className="home2-header__logo">
             ARC<span className="logo-highlight">Funded</span>
@@ -111,7 +38,7 @@ const Home2 = () => {
       </header>
 
       {/* Main Content */}
-      <main className="home2-main animate-section">
+      <main className="home2-main">
         <img src={image['shade.avif']} alt="Background shade" className="shade-img" />
         
         <div className="home2-sections">
@@ -123,7 +50,7 @@ const Home2 = () => {
           <div className="home2-content">
             <div className="home2-left">
               {/* Rating Badge */}
-              <div className="rating-badge animate-card">
+              <div className="rating-badge">
                 <div className="stars">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="star">★</span>
@@ -134,12 +61,12 @@ const Home2 = () => {
               </div>
 
               {/* Main Title */}
-              <h1 className="home2-title animate-card">
+              <h1 className="home2-title">
                 Trade with Confidence, Grow with ARC
               </h1>
 
               {/* Feature Points */}
-              <div className="feature-points animate-card">
+              <div className="feature-points">
                 <div className="feature-point">
                   <div className="feature-label">Up to</div>
                   <div className="feature-value">$200K</div>
@@ -159,14 +86,14 @@ const Home2 = () => {
               </div>
 
               {/* Description */}
-              <p className="home2-description animate-card">
+              <p className="home2-description">
                 Join thousands of successful traders who trust ARC for their trading journey. 
                 Experience advanced tools, real-time analytics, and professional support that 
                 helps you achieve consistent profitability.
               </p>
 
               {/* Action Buttons */}
-              <div className="home2-actions animate-card">
+              <div className="home2-actions">
                 <button className="primary-action-btn">Start Your Challenge</button>
                 <button className="secondary-action-btn">Learn More →</button>
               </div>
@@ -203,7 +130,7 @@ const Home2 = () => {
       </main>
 
       {/* Testimonials Section */}
-      <section className="testimonials-section animate-section">
+      <section className="testimonials-section">
         <div className="testimonials-header">
           <h2 className="testimonials-title">What Our Traders Say</h2>
           <p className="testimonials-subtitle">
@@ -358,12 +285,12 @@ const Home2 = () => {
       </section>
 
       {/* Rewards Section */}
-      <div className="animate-section">
+      <div>
         <Rewards />
       </div>
 
       {/* Trading Plans Section */}
-      <div className="animate-section">
+      <div>
         <TradingPlans />
       </div>
     </div>
