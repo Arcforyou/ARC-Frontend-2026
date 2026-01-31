@@ -110,6 +110,10 @@
             line-height: 1em;
             margin-bottom: 40px;
             font-family: "Red Rose", serif!important;
+
+            @media (max-width: 1440px) {
+                font-size: 56px;
+            }
         }
 
         p {
@@ -119,6 +123,10 @@
             margin: auto;
             margin-bottom: 40px;
             font-family: "Red Rose", serif!important;
+
+            @media (max-width: 1440px) {
+                font-size: 16px;
+            }
 
         }
 
