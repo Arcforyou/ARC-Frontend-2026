@@ -29,8 +29,8 @@ const Home2 = () => {
   return (
     <div className="home2-wrapper">
       {/* Header */}
-      <header className={`home2-header container   ${isScrolled ? 'scrolled' : ''}`}>
-        <div className="home2-header__container ">
+      <header className={`home2-header   ${isScrolled ? 'scrolled' : ''}`}>
+        <div className="home2-header__container container ">
           {/* Logo */}
           <Link to="/" className="home2-header__logo">
             <img src={image['logo.png']} alt="ARC Logo" className='w-24' />
@@ -163,11 +163,11 @@ const Home2 = () => {
       {/* Testimonials Section */}
       <section className="testimonials-section">
         <div className="container">
-          <div className="testimonials-header">
+          {/* <div className="testimonials-header">
             <h2 className="testimonials-title">What Our Traders Say</h2>
             <p className="testimonials-subtitle">Join thousands of successful traders who trust ARC</p>
           </div>
-          
+           */}
           <div className="testimonials-marquee">
             <div className="testimonials-track">
               {/* First set of testimonials */}

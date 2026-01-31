@@ -240,7 +240,7 @@
 
 // Testimonials Section
 .testimonials-section {
-  padding: 100px 0;
+  
   background: #051a15;
   position: relative;
   overflow: hidden;
@@ -283,7 +283,7 @@
     margin-bottom: 16px;
     line-height: 1.2;
 
-    @media (max-width: 1440px) {
+    @media (max-width: 1536px) {
       font-size: 40px;
     }
 
@@ -316,7 +316,7 @@
   gap: 30px;
   animation: marqueeScroll 40s linear infinite;
   width: fit-content;
-
+  padding: 20px 0 50px 0 ;
   &:hover {
     animation-play-state: paused;
   }
@@ -445,7 +445,6 @@
   &.scrolled {
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   &__container {
@@ -493,7 +492,9 @@
       transition: color 0.2s ease;
       padding: 6px 12px;
       border-radius: 5px;
-
+      @media (max-width: 1536px) {
+        font-size: 14px;
+      }
       &:hover {
         background-color: #ffffff12;
       }
@@ -575,8 +576,7 @@
 
 // Main Content
 .home2-main {
-  padding: 150px 0;
-  min-height: 100vh;
+  padding: 150px 0 80px 0;
   display: flex;
   align-items: center;
   // background-image: url(../../assets/images/bg-green.avif);
@@ -669,8 +669,8 @@
   margin-bottom: 40px;
   color: #ffffff;
 
-  @media (max-width: 1440px) {
-    font-size: 52px;
+  @media (max-width: 1536px) {
+    font-size: 50px;
   }
 
   @media (max-width: 768px) {
@@ -723,6 +723,9 @@
     color: #ffffff;
     font-weight: 500;
     line-height: 1.3;
+    @media (max-width: 1536px) {
+      font-size: 14px;
+    }
   }
 }
 
@@ -734,7 +737,7 @@
   margin-bottom: 40px;
   max-width: 600px;
 
-  @media (max-width: 1440px) {
+  @media (max-width: 1536px) {
     font-size: 16px;
   }
 
@@ -761,7 +764,7 @@
     border: none;
     font-weight: 600;
     font-size: 16px;
-    padding: 16px 32px;
+    padding: 12px 25px;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
