@@ -232,7 +232,7 @@ const TradingPlans = () => {
   const accountSizes = Object.keys(currentData);
 
   return (
-    <section className="trading-plans-new">
+    <section className="trading-plans-new" data-aos="fade-up">
       <div className="container">
         {/* Main Tabs */}
         <div className="trading-plans-new__main-tabs">

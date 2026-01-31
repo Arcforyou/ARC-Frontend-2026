@@ -25,6 +25,7 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="header__nav">
           <Link to="/" className="header__link active">Home</Link>
+          <Link to="/home2" className="header__link">Home 2</Link>
           <Link to="/faq" className="header__link">FAQ</Link>
           <Link to="/how-it-works" className="header__link">How it Works</Link>
           <Link to="/about" className="header__link">About us</Link>

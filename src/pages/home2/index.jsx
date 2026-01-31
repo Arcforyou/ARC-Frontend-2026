@@ -72,7 +72,7 @@ const Home2 = () => {
         <div className="container">
           <div className="home2-content">
             {/* Left Side Content */}
-            <div className="home2-left">
+            <div className="home2-left" data-aos="fade-right">
               {/* Rating Badge */}
               <div className="rating-badge">
                 <div className="stars">
@@ -161,12 +161,12 @@ const Home2 = () => {
       </main>
       
       {/* Testimonials Section */}
-      <section className="testimonials-section">
+      <section className="testimonials-section " data-aos="fade-up">
         <div className="container">
-          <div className="testimonials-header">
+          {/* <div className="testimonials-header">
             <h2 className="testimonials-title">What Our Traders Say</h2>
             <p className="testimonials-subtitle">Join thousands of successful traders who trust ARC</p>
-          </div>
+          </div> */}
           
           <div className="testimonials-marquee">
             <div className="testimonials-track">

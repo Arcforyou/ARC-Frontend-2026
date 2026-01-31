@@ -8,7 +8,7 @@ const Rewards = () => {
       <div className="container">
         <div className="rewards__content">
           {/* Left Side Content */}
-          <div className="rewards__left">
+          <div className="rewards__left" data-aos="fade-right">
             <h2 className="rewards__title">
               Show us your <span className="rewards__title-highlight">talent</span><br />
               and be <span className="rewards__title-muted">rewarded</span>
@@ -119,7 +119,7 @@ const Rewards = () => {
           </div>
 
           {/* Right Side - Empty space for image */}
-          <div className="rewards__right">
+          <div className="rewards__right" data-aos="fade-left">
             {/* Empty space for image to be added later */}
           </div>
         </div>
