@@ -5,6 +5,16 @@ import image from '../../utils/helper';
 
 const Home3 = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activePhase, setActivePhase] = useState('one-phase');
+  const [activeSubTab, setActiveSubTab] = useState('classic');
+  const [activeAccountSize, setActiveAccountSize] = useState('5k');
+  const [activePhaseTab, setActivePhaseTab] = useState(0);
+  const [indicatorPosition, setIndicatorPosition] = useState(0);
+  const [indicatorWidth, setIndicatorWidth] = useState(0);
+  const tabsRef = useRef(null);
+  const tabRefs = useRef([]);
+
+  const accountSizes = ['5k', '10k', '25k', '50k', '100k'];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -123,6 +133,260 @@ const Home3 = () => {
           <div className="crypto-icon crypto-icon-6">$</div>
         </div>
       </main>
+
+      {/* Pricing Table Section */}
+      <section className="home3-pricing">
+        <div className="container">
+          {/* Main Phase Tabs */}
+          <div className="home3-pricing__main-tabs">
+            <button
+              className={`home3-pricing__main-tab ${activePhase === 'one-phase' ? 'active' : ''}`}
+              onClick={() => setActivePhase('one-phase')}
+            >
+              <span className="home3-pricing__tab-number">1</span>
+              <span className="home3-pricing__tab-text">One Phase</span>
+            </button>
+            <button
+              className={`home3-pricing__main-tab ${activePhase === 'two-phase' ? 'active' : ''}`}
+              onClick={() => setActivePhase('two-phase')}
+            >
+              <span className="home3-pricing__tab-number">2</span>
+              <span className="home3-pricing__tab-text">Two Phase</span>
+            </button>
+            <button
+              className={`home3-pricing__main-tab ${activePhase === 'instant-funding' ? 'active' : ''}`}
+              onClick={() => setActivePhase('instant-funding')}
+            >
+              <span className="home3-pricing__tab-number">4</span>
+              <span className="home3-pricing__tab-text">Instant Funding</span>
+            </button>
+          </div>
+
+          {/* Sub Tabs for Two Phase and Instant Funding */}
+          {activePhase === 'two-phase' && (
+            <div className="home3-pricing__sub-tabs">
+              <button
+                className={`home3-pricing__sub-tab ${activeSubTab === 'classic' ? 'active' : ''}`}
+                onClick={() => setActiveSubTab('classic')}
+              >
+                <div className="home3-pricing__sub-tab-title">Classic</div>
+                <div className="home3-pricing__sub-tab-subtitle">Static</div>
+              </button>
+              <button
+                className={`home3-pricing__sub-tab ${activeSubTab === 'standard' ? 'active' : ''}`}
+                onClick={() => setActiveSubTab('standard')}
+              >
+                <div className="home3-pricing__sub-tab-title">Standard</div>
+                <div className="home3-pricing__sub-tab-subtitle">Trailing</div>
+              </button>
+            </div>
+          )}
+
+          {activePhase === 'instant-funding' && (
+            <div className="home3-pricing__sub-tabs">
+              <button
+                className={`home3-pricing__sub-tab ${activeSubTab === 'standard' ? 'active' : ''}`}
+                onClick={() => setActiveSubTab('standard')}
+              >
+                <div className="home3-pricing__sub-tab-title">Standard</div>
+                <div className="home3-pricing__sub-tab-subtitle">Trailing</div>
+              </button>
+              <button
+                className={`home3-pricing__sub-tab ${activeSubTab === 'lite' ? 'active' : ''}`}
+                onClick={() => setActiveSubTab('lite')}
+              >
+                <div className="home3-pricing__sub-tab-title">Lite</div>
+                <div className="home3-pricing__sub-tab-subtitle">Trailing</div>
+              </button>
+            </div>
+          )}
+
+          {/* Promo Banner */}
+          <div className="home3-pricing__promo">
+            <span className="home3-pricing__promo-text">22% + 100% Split (Excludes Instant Funding Lite)</span>
+            <span className="home3-pricing__promo-code">LOVE22</span>
+          </div>
+
+          {/* Account Size Selector */}
+          <div className="home3-pricing__account-selector">
+            <div className="home3-pricing__account-tabs" ref={tabsRef}>
+              <div 
+                className="home3-pricing__active-indicator"
+                style={{
+                  transform: `translateX(${indicatorPosition}px)`,
+                  width: `${indicatorWidth}px`
+                }}
+              />
+              {accountSizes.map((size, index) => (
+                <button
+                  key={size}
+                  ref={el => tabRefs.current[index] = el}
+                  className={`home3-pricing__account-tab ${activeAccountSize === size ? 'active' : ''}`}
+                  onClick={() => handleAccountSizeChange(size, index)}
+                >
+                  <div className="home3-pricing__account-circle">
+                    {activeAccountSize === size && <div className="home3-pricing__check">✓</div>}
+                  </div>
+                  <span className="home3-pricing__account-amount">${size}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Pricing Content */}
+          <div className="home3-pricing__content">
+            {/* Left Card */}
+            <div className="home3-pricing__left-card">
+              <div className="home3-pricing__card-header">
+                <div className="home3-pricing__phase-indicator">
+                  <span className="home3-pricing__phase-number">
+                    {activePhase === 'one-phase' ? '1' : activePhase === 'two-phase' ? '2' : '4'}
+                  </span>
+                  <span className="home3-pricing__phase-name">
+                    {activePhase === 'one-phase' ? 'One Phase' : 
+                     activePhase === 'two-phase' ? 'Two Phase' : 'Instant Funding'}
+                  </span>
+                </div>
+                
+                {getCurrentData().badge && (
+                  <div className={`home3-pricing__badge ${getCurrentData().badgeType}`}>
+                    {getCurrentData().badge}
+                  </div>
+                )}
+              </div>
+
+              <h3 className="home3-pricing__card-title">{getCurrentData().title}</h3>
+
+              <div className="home3-pricing__pricing">
+                <div className="home3-pricing__promo-tag">With Code: LOVE22</div>
+                <div className="home3-pricing__price">
+                  <span className="home3-pricing__current-price">${getCurrentData().price}</span>
+                  <span className="home3-pricing__original-price">${getCurrentData().originalPrice}</span>
+                </div>
+                <div className="home3-pricing__account-info">For ${activeAccountSize} account</div>
+              </div>
+
+              <button className="home3-pricing__cta-button">Start Trading</button>
+            </div>
+
+            {/* Right Content */}
+            <div className="home3-pricing__right-content">
+              {/* Account Details */}
+              <div className="home3-pricing__account-details">
+                <h4 className="home3-pricing__details-title">
+                  ${activeAccountSize} {getCurrentData().phaseTitle} account includes:
+                </h4>
+
+                {/* Phase Tabs */}
+                <div className="home3-pricing__phase-tabs">
+                  {getCurrentData().phases.map((phase, index) => (
+                    <button
+                      key={index}
+                      className={`home3-pricing__phase-tab ${activePhaseTab === index ? 'active' : ''}`}
+                      onClick={() => setActivePhaseTab(index)}
+                    >
+                      {phase.name}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Features */}
+                <div className="home3-pricing__features">
+                  {getCurrentData().phases[activePhaseTab].features.map((feature, index) => (
+                    <div key={index} className="home3-pricing__feature">
+                      <div className="home3-pricing__feature-header">
+                        <span className="home3-pricing__check-icon">✓</span>
+                        <span className="home3-pricing__feature-title">{feature.title}</span>
+                        <span className="home3-pricing__feature-value">{feature.value}</span>
+                      </div>
+                      {feature.description && (
+                        <p className="home3-pricing__feature-description">{feature.description}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* All Plans Include */}
+              <div className="home3-pricing__all-plans">
+                <h4 className="home3-pricing__all-plans-title">All plans include:</h4>
+                <div className="home3-pricing__all-plans-grid">
+                  <div className="home3-pricing__plan-feature">
+                    <span className="home3-pricing__plan-label">Minimum trading days</span>
+                    <span className="home3-pricing__plan-value">
+                      <span className="home3-pricing__check-circle">✓</span>
+                      {getCurrentData().allPlans.minTradingDays}
+                    </span>
+                  </div>
+                  <div className="home3-pricing__plan-feature">
+                    <span className="home3-pricing__plan-label">Maximum trading days</span>
+                    <span className="home3-pricing__plan-value">
+                      <span className="home3-pricing__check-circle">✓</span>
+                      {getCurrentData().allPlans.maxTradingDays}
+                    </span>
+                  </div>
+                  <div className="home3-pricing__plan-feature">
+                    <span className="home3-pricing__plan-label">Performance split</span>
+                    <span className="home3-pricing__plan-value">
+                      <span className="home3-pricing__check-circle">✓</span>
+                      {getCurrentData().allPlans.performanceSplit}
+                    </span>
+                  </div>
+                  <div className="home3-pricing__plan-feature">
+                    <span className="home3-pricing__plan-label">Leverage</span>
+                    <span className="home3-pricing__plan-value">
+                      <span className="home3-pricing__check-circle">✓</span>
+                      {getCurrentData().allPlans.leverage}
+                    </span>
+                  </div>
+                  <div className="home3-pricing__plan-feature">
+                    <span className="home3-pricing__plan-label">Drawdown Type</span>
+                    <span className="home3-pricing__plan-value">
+                      <span className="home3-pricing__check-circle">✓</span>
+                      {getCurrentData().allPlans.drawdownType}
+                    </span>
+                  </div>
+                  <div className="home3-pricing__plan-feature">
+                    <span className="home3-pricing__plan-label">EAs Allowed</span>
+                    <span className="home3-pricing__plan-value">
+                      <span className="home3-pricing__check-circle">✓</span>
+                      {getCurrentData().allPlans.easAllowed}
+                    </span>
+                  </div>
+                  <div className="home3-pricing__plan-feature">
+                    <span className="home3-pricing__plan-label">Refund</span>
+                    <span className="home3-pricing__plan-value">
+                      <span className="home3-pricing__check-circle">✓</span>
+                      {getCurrentData().allPlans.refund}
+                    </span>
+                  </div>
+                  <div className="home3-pricing__plan-feature">
+                    <span className="home3-pricing__plan-label">Hold Over Weekend</span>
+                    <span className="home3-pricing__plan-value">
+                      <span className="home3-pricing__check-circle">✓</span>
+                      {getCurrentData().allPlans.holdOverWeekend}
+                    </span>
+                  </div>
+                  <div className="home3-pricing__plan-feature">
+                    <span className="home3-pricing__plan-label">Trade Through News</span>
+                    <span className="home3-pricing__plan-value">
+                      <span className="home3-pricing__check-circle">✓</span>
+                      {getCurrentData().allPlans.tradeNews}
+                    </span>
+                  </div>
+                  <div className="home3-pricing__plan-feature">
+                    <span className="home3-pricing__plan-label">Platform</span>
+                    <span className="home3-pricing__plan-value">
+                      <span className="home3-pricing__check-circle">✓</span>
+                      {getCurrentData().allPlans.platform}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
