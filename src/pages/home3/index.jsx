@@ -77,8 +77,8 @@ const Home3 = () => {
           <div className="home3-content">
             {/* Main Heading */}
             <h1 className="home3-title">
-              Built for <span className="home3-title-highlight">Traders</span><br />
-              Backed by Professionals!
+            <span className="home3-title-highlight"> ARC</span> Built for <span className="home3-title-highlight">Traders</span><br />
+              <span style={{fontSize:'60px'}}>Backed by Professionals!</span>
             </h1>
             <div className='para'>
               Master your trading skills on our simulated trading platform,
