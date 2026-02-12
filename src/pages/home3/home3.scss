@@ -7,13 +7,22 @@
 
 // Video Background
 .home3-video-background {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: -2;
-
+  &::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 0;
+  }
   video {
     width: 100%;
     height: 100%;
@@ -33,7 +42,6 @@
 
 // Header Styles
 .home3-header {
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -169,22 +177,21 @@
 .home3-main {
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  // justify-content: center;
   position: relative;
   z-index: 1;
 }
 
 .home3-content {
   text-align: center;
-  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 100px 20px;
 }
 
 // Main Title
 .home3-title {
-  font-size: 72px;
+  font-size: 80px;
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 40px;
@@ -211,6 +218,13 @@
   }
 }
 
+.para{
+  max-width: 70%;
+  font-size: 22px;
+  margin: auto;
+  margin-bottom: 40px;
+  color: rgba(240, 248, 255, 0.701);
+}
 // Animated Text Section
 .home3-animated-text {
   height: 60px;
@@ -232,6 +246,7 @@
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .home3-slide-text {
@@ -274,6 +289,11 @@
 }
 
 // CTA Button
+.cta{
+  display: flex;
+  gap: 20px ;
+  justify-content: center;
+}
 .home3-cta-button {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #ffffff;
@@ -286,7 +306,12 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
-
+  margin-bottom: 50px;
+  min-width: 220px;
+  &.bordered{
+    background: transparent;
+    border: 1px solid #3477f2;
+  }
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);

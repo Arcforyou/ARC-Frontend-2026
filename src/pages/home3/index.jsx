@@ -18,7 +18,7 @@ const Home3 = () => {
 
   const animatedTexts = [
     "90% Profit Split",
-    "300K+ Trading Accounts", 
+    "300K+ Trading Accounts",
     "Accounts Fully Customizable",
     "No Time Limit In Challenge Phase"
   ];
@@ -41,7 +41,7 @@ const Home3 = () => {
           <Link to="/" className="home3-header__logo">
             <img src={image['logo.png']} alt="ARC Logo" className='w-24' />
           </Link>
-          
+
           {/* Desktop Navigation */}
           <nav className="home3-header__nav">
             <Link to="/" className="nav-link">Home</Link>
@@ -77,16 +77,28 @@ const Home3 = () => {
           <div className="home3-content">
             {/* Main Heading */}
             <h1 className="home3-title">
-              Built for <span className="home3-title-highlight">Traders</span>, Cross-chain<br />
-              Exchange
+              Built for <span className="home3-title-highlight">Traders</span><br />
+              Backed by Professionals!
             </h1>
-
+            <div className='para'>
+              Master your trading skills on our simulated trading platform,
+              improve your trading on a demo ARC Account with up to $300,000 and get a reward of up to 90% of your simulated profits
+            </div>
+            {/* CTA Button */}
+            <div className='cta'>
+              <button className="home3-cta-button">
+                ARC CHALLENGE
+              </button>
+              <button className="home3-cta-button bordered">
+                Go To Dashboard
+              </button>
+            </div>
             {/* Animated Text Section */}
             <div className="home3-animated-text">
               <div className="home3-text-slider">
                 {animatedTexts.map((text, index) => (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className="home3-slide-text"
                     style={{ animationDelay: `${index * 3}s` }}
                   >
@@ -96,10 +108,7 @@ const Home3 = () => {
               </div>
             </div>
 
-            {/* CTA Button */}
-            <button className="home3-cta-button">
-              ARC CHALLENGE
-            </button>
+
           </div>
         </div>
 
