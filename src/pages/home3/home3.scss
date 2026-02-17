@@ -3,6 +3,7 @@
   position: relative;
   overflow: hidden;
   color: #ffffff;
+  // background-color: #000000;
 }
 
 // Video Background
@@ -11,7 +12,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   z-index: -2;
   &::after{
     content: "";
@@ -552,12 +553,11 @@
   &__account-tabs {
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     gap: 40px;
-    background: rgba(255, 255, 255, 0.05);
     border-radius: 50px;
-    padding: 20px 40px;
-    width: fit-content;
+    padding: 0;
+    width: 100%;
     margin: 0 auto;
 
     @media (max-width: 768px) {
@@ -568,11 +568,12 @@
 
   &__active-indicator {
     position: absolute;
-    top: 50%;
+    top: 17%;
     transform: translateY(-50%);
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 50px;
-    height: 60px;
+    height: 25px;
+    width: 25px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1;
 

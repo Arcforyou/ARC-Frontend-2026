@@ -1,0 +1,572 @@
+// ─── FONTS ───────────────────────────────────────────────────────────────────
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+// ─── VARIABLES ───────────────────────────────────────────────────────────────
+$font:           'DM Sans', 'Manrope', sans-serif;
+$bg:             #0a0b0d;
+$surface:        #0e1018;
+$surface-alt:    #0c0e16;
+$border:         #1a1c28;
+$border-active:  #2a2d36;
+$text:           #e8eaf0;
+$text-muted:     #e1e1e2;
+$text-dim:       #9599b0;
+$text-mid:       #e2e5ed;
+$accent:         #00d4a0;
+$accent-dim:     rgba(0, 212, 160, 0.08);
+$accent-glow:    rgba(0, 212, 160, 0.15);
+$white-glow:     rgba(255, 255, 255, 0.05);
+
+// ─── RESET ───────────────────────────────────────────────────────────────────
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+  font-family: $font;
+}
+
+// ─── ROOT ────────────────────────────────────────────────────────────────────
+.root {
+  font-family: $font;
+  min-height: 100vh;
+  padding: 40px 24px;
+  color: $text;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// ─── TYPE TAB BAR ────────────────────────────────────────────────────────────
+.typeTabBar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.typeTab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 12px;
+  border: 1.5px solid #1c1e26;
+  background: transparent;
+  color: $text-muted;
+  font-size: 14px;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+
+  &:hover {
+    border-color: $border-active;
+    color: #cccccc;
+  }
+
+  &.active {
+    border-color: $border-active;
+    background: #14161e;
+    color: #ffffff;
+    font-weight: 600;
+  }
+}
+
+.typeNum {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  border: 1.5px solid #242630;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #3a3f52;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+
+  .active & {
+    border-color: #2e3145;
+    background: #1e2130;
+    color: #e0e4f0;
+  }
+}
+
+// ─── SUBTYPE + PROMO ROW ─────────────────────────────────────────────────────
+.subtypeRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.subtypeToggle {
+  display: flex;
+  background: $surface-alt;
+  border-radius: 10px;
+  padding: 4px;
+  border: 1px solid $border;
+}
+
+.subtypeBtn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: $text-dim;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
+  transition: all 0.2s ease;
+
+  &.active {
+    background: #1a1d28;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .subtypeSub {
+    font-size: 11px;
+    opacity: 0.5;
+    margin-top: 2px;
+  }
+}
+
+.promoBar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: $surface-alt;
+  border: 1px solid $border;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 15px;
+  color: $text-muted;
+}
+
+.promoHighlight {
+  color: $accent;
+  font-weight: 700;
+}
+
+.couponBadge {
+  background: transparent;
+  border: 1px solid $accent;
+  color: $accent;
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+// ─── SIZE SLIDER ─────────────────────────────────────────────────────────────
+.sizeBarWrap {
+  position: relative;
+  padding: 0 4px;
+  margin-bottom: 28px;
+}
+
+.sizeBar {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.sizeIndicator {
+  position: absolute;
+  top: 50%;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1e2236 0%, #141622 60%, #0e1018 100%);
+  border: 1.5px solid #ffffff;
+  box-shadow:
+    0 0 0 5px rgba(255, 255, 255, 0.05),
+    0 0 18px rgba(255, 255, 255, 0.07);
+  transform: translateX(0) translateY(-50%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.sizeBtn {
+  flex: 1;
+  position: relative;
+  z-index: 3;
+  background: transparent;
+  border: none;
+  color: #FFF;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 10px 0;
+  text-align: center;
+  transition: color 0.25s ease;
+  min-width: 50px;
+
+  &:hover {
+    color: #aaaaaa;
+  }
+
+  &.active {
+    color: #ffffff;
+    font-weight: 700;
+  }
+}
+
+// ─── CONTENT GRID ────────────────────────────────────────────────────────────
+.contentGrid {
+  display: grid;
+  grid-template-columns: 300px 1fr 280px;
+  gap: 16px;
+  align-items: start;
+}
+
+// ─── SHARED CARD ─────────────────────────────────────────────────────────────
+%card {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+// ─── LEFT CARD ───────────────────────────────────────────────────────────────
+.leftCard {
+  @extend %card;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cardBadgeRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardNum {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid #252838;
+  background: #12141e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 15px;
+  color: #b0b8d0;
+  flex-shrink: 0;
+}
+
+.cardTypeName {
+  font-weight: 700;
+  font-size: 15px;
+  color: #e0e4f0;
+}
+
+.popularBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #12141e;
+  border: 1px solid #252838;
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 14px;
+  color: #808498;
+  width: fit-content;
+}
+
+.divider {
+  height: 1px;
+  background: $border;
+  margin: 0 -24px;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #e0e4f0;
+  line-height: 1.4;
+}
+
+.couponTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0d2a1e;
+  border: 1px solid #0d4030;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  color: $accent;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.priceMain {
+  font-size: 26px;
+  font-weight: 800;
+  color: $accent;
+  letter-spacing: -0.02em;
+}
+
+.priceOld {
+  font-size: 15px;
+  color: #303550;
+  text-decoration: line-through;
+}
+
+.priceFor {
+  font-size: 14px;
+  color: #fff;
+  margin-left: auto;
+}
+
+.startBtn {
+  background: transparent;
+  border: 1.5px solid $accent;
+  border-radius: 12px;
+  color: $accent;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 0;
+  letter-spacing: 0.02em;
+  margin-top: 4px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    background: $accent-dim;
+    box-shadow: 0 0 24px $accent-glow;
+  }
+}
+
+// ─── MID CARD ────────────────────────────────────────────────────────────────
+.midCard {
+  @extend %card;
+}
+
+.midHeader {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e0e4f0;
+  margin-bottom: 14px;
+}
+
+.phasePills {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.phasePill {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid $border;
+  background: transparent;
+  color: $text-dim;
+  font-size: 15px;
+  font-weight: 400;
+  transition: all 0.2s ease;
+
+  &.active {
+    border-color: transparent;
+    background: #1a1e2e;
+    color: #e0e4f0;
+    font-weight: 600;
+  }
+}
+
+.featureRow {
+  border-top: 1px solid #161820;
+  padding: 13px 0;
+}
+
+.featureTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.featureLabel {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 15px;
+  font-weight: 500;
+  color: $text-mid;
+}
+
+.checkIcon {
+  width: 18px;
+  height: 18px;
+  color: $accent;
+  flex-shrink: 0;
+}
+
+.featureRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.featureValue {
+  font-size: 14px;
+  font-weight: 700;
+  color: #e0e4f0;
+}
+
+.featureBadgePill {
+  background: #1a1c26;
+  border: 1px solid #2a2d3e;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 14px;
+  color: #8890a8;
+}
+
+.featureExpandBtn {
+  background: none;
+  border: none;
+  color: $text-dim;
+  font-size: 11px;
+  padding: 0;
+  line-height: 1;
+  margin-left: 2px;
+}
+
+.featureDesc {
+  margin-top: 8px;
+  font-size: 11.5px;
+  color: $text-dim;
+  line-height: 1.65;
+  padding-left: 25px;
+}
+
+// ─── RIGHT CARD ──────────────────────────────────────────────────────────────
+.rightCard {
+  @extend %card;
+}
+
+.rightHeader {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e0e4f0;
+  margin-bottom: 16px;
+}
+
+.planGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 8px;
+}
+
+.planItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.planKey {
+  font-size: 12px;
+  color: $text-dim;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.planVal {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFF;
+}
+
+.planCheck {
+  color: $accent;
+  font-size: 14px;
+}
+
+// ─── RESPONSIVE ──────────────────────────────────────────────────────────────
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr 1fr;
+
+    .rightCard {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .typeTabBar {
+    gap: 6px;
+  }
+
+  .typeTab {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .promoBar {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+
+  .sizeBtn {
+    font-size: 11px;
+    min-width: 38px;
+  }
+
+  .planGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .root {
+    padding: 24px 14px;
+  }
+
+  .typeTabBar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+
+    &::-webkit-scrollbar {
+      height: 2px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $border-active;
+      border-radius: 2px;
+    }
+  }
+}
